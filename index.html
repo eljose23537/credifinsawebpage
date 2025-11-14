@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credifinsa - Planifica tu Futuro, Adquiere tu Vehículo o Vivienda</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .credifinsa-green { color: #008f39; }
+        .bg-credifinsa-green { background-color: #008f39; }
+        .border-credifinsa-green { border-color: #008f39; }
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2)), url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2574&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .step-card::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            top: -2rem;
+            left: -2rem;
+            width: 4rem;
+            height: 4rem;
+            background-color: #008f39;
+            color: white;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.875rem;
+            font-weight: 700;
+            border: 4px solid white;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        body {
+            counter-reset: step-counter;
+        }
+        .faq-item summary {
+            cursor: pointer;
+        }
+        .faq-item[open] summary svg {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Images/logo-credifinsa-100x100.png" alt="Logo Credifinsa" class="h-10 w-10">
+                <span class="text-2xl font-bold text-gray-800">Credifinsa</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
+                <a href="#como-funciona" class="text-gray-600 hover:credifinsa-green transition duration-300">¿Cómo Funciona?</a>
+                <a href="#testimonios" class="text-gray-600 hover:credifinsa-green transition duration-300">Testimonios</a>
+                <a href="nosotros.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
+                <a href="cotizador.html" class="credifinsa-green font-semibold transition duration-300">Simulador</a>
+                <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                    Cotiza Ahora
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+            <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="#como-funciona" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">¿Cómo Funciona?</a>
+            <a href="#testimonios" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Testimonios</a>
+            <a href="nosotros.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nosotros</a>
+            <a href="cotizador.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Simulador</a>
+            <div class="px-6 mt-4">
+                 <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="block text-center bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                    Cotiza Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-bg text-white">
+        <div class="container mx-auto px-6 py-32 text-center md:text-left">
+            <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-wider leading-tight">Planificar es Avanzar</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-2xl">En Credifinsa hacemos realidad tu sueño de tener vehículo o vivienda propia a través de nuestros planes de compra programada. El futuro que quieres, a tu alcance.</p>
+            <div class="mt-8">
+                <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="bg-credifinsa-green text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-green-700 transition duration-300">
+                    Conoce Nuestros Productos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section -->
+    <section id="servicios" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">Elige Tu Próximo Gran Paso</h2>
+                <p class="text-gray-600 mt-2">Planes flexibles y accesibles para lo que más quieres.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Card Vehículos -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2670&auto=format&fit=crop" alt="[Imagen de un vehículo deportivo rojo]" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4">Vehículos</h3>
+                        <p class="text-gray-600 mb-6">Estrena el auto que siempre quisiste sin complicaciones. Con nuestro sistema de compra programada, accedes a crédito directo con cuotas que se ajustan a tu presupuesto.</p>
+                        <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="text-credifinsa-green font-semibold hover:text-green-700 transition duration-300">Solicitar información &rarr;</a>
+                    </div>
+                </div>
+                <!-- Card Viviendas -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=2670&auto=format&fit=crop" alt="[Imagen de una casa moderna con jardín]" class="w-full h-64 object-cover">
+                    <div class="p-8">
+                        <h3 class="text-3xl font-bold mb-4">Viviendas</h3>
+                        <p class="text-gray-600 mb-6">Tu hogar propio está más cerca que nunca. Planifica la compra de tu casa o departamento con cuotas mensuales fijas y sin intereses bancarios excesivos.</p>
+                        <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="text-credifinsa-green font-semibold hover:text-green-700 transition duration-300">Solicitar información &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Beneficios Section -->
+    <section id="beneficios" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">¿Por qué elegir Credifinsa?</h2>
+                <p class="text-gray-600 mt-2">Te ofrecemos la forma más inteligente y flexible de alcanzar tus metas.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Beneficio 1 -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M12 6h.01M6 12h.01M18 12h.01M7 7h.01M17 7h.01M7 17h.01M17 17h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sin Intereses Bancarios</h3>
+                    <p class="text-gray-600">Olvídate de las altas tasas de interés de la banca tradicional. Con nosotros, tu dinero rinde más.</p>
+                </div>
+                <!-- Beneficio 2 -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Aprobación Flexible</h3>
+                    <p class="text-gray-600">No revisamos tu historial crediticio de forma estricta. Creemos en tu capacidad de planificación.</p>
+                </div>
+                <!-- Beneficio 3 -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Cuotas Fijas</h3>
+                    <p class="text-gray-600">Planifica tu futuro con tranquilidad. Tus cuotas se mantendrán iguales durante todo el plazo.</p>
+                </div>
+                <!-- Beneficio 4 -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Crédito Directo</h3>
+                    <p class="text-gray-600">Sin intermediarios. El trato es directo con nosotros, lo que agiliza y simplifica todo el proceso.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Funciona Section -->
+    <section id="como-funciona" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold text-gray-800">Tu Sueño en 3 Simples Pasos</h2>
+                <p class="text-gray-600 mt-2">Nuestro proceso es transparente, fácil y diseñado para ti.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10 md:gap-20">
+                <!-- Step 1 -->
+                <div class="relative pt-12">
+                    <div class="step-card bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">Elige tu Plan</h3>
+                        <p class="text-gray-600">Selecciona el monto que necesitas para tu vehículo o vivienda y el plazo que más te convenga.</p>
+                    </div>
+                </div>
+                 <!-- Step 2 -->
+                <div class="relative pt-12">
+                    <div class="step-card bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">Planifica y Aporta</h3>
+                        <p class="text-gray-600">Realiza tus aportes mensuales de forma puntual. Sin sorpresas ni letras pequeñas.</p>
+                    </div>
+                </div>
+                 <!-- Step 3 -->
+                <div class="relative pt-12">
+                     <div class="step-card bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-2">Recibe tu Bien</h3>
+                        <p class="text-gray-600">Una vez cumplido el plan, te adjudicamos el crédito para que adquieras el bien que elegiste.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section -->
+    <section id="testimonios" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">Nuestros Clientes, Nuestra Mejor Garantía</h2>
+                <p class="text-gray-600 mt-2">Historias reales de personas que confiaron en nosotros.</p>
+            </div>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Testimonio 1 -->
+                <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row items-center">
+                    <img class="w-24 h-24 rounded-full mx-auto md:mx-0 md:mr-6" src="Images/carlos-sanchez-credifinsa.png" alt="[Foto de Carlos Sanchez]">
+                    <div class="text-center md:text-left mt-4 md:mt-0">
+                        <p class="text-gray-600 italic">"Gracias a Credifinsa pude comprar mi primer auto. El proceso fue súper transparente y las cuotas se ajustaron perfecto a mi presupuesto. ¡Totalmente recomendados!"</p>
+                        <p class="font-bold text-gray-800 mt-4">- Carlos Sánchez</p>
+                        <p class="text-sm credifinsa-green">Vehículo Adquirido</p>
+                    </div>
+                </div>
+                <!-- Testimonio 2 (CORREGIDO) -->
+                <div class="bg-white rounded-lg shadow-lg p-8 flex flex-col md:flex-row items-center">
+                    <img src="Images/fernando-gutierrez-credifinsa.png" alt="[Foto de Fernando Gutierrez]" class="w-24 h-24 rounded-full mx-auto md:mx-0 md:mr-6">
+                    <div class="text-center md:text-left mt-4 md:mt-0">
+                        <p class="text-gray-600 italic">"Comprar nuestro carro parecía un sueño lejano por los requisitos de los bancos. Con Credifinsa y su plan programado, hoy ese sueño es una realidad para mi familia."</p>
+                        <p class="font-bold text-gray-800 mt-4">- Fernando Gutierrez</p>
+                        <p class="text-sm credifinsa-green">Vehículo Adquirido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section -->
+    <section id="contacto" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 lg:flex lg:items-center lg:justify-between">
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">¿Listo para empezar a planificar?</h2>
+                    <p class="mt-4 text-gray-600">Déjanos tus datos y uno de nuestros asesores se pondrá en contacto contigo para brindarte toda la información que necesitas. ¡Sin compromiso!</p>
+                    <div class="mt-8 space-y-4">
+                        <p class="flex items-center text-gray-700">
+                            <svg class="w-6 h-6 mr-3 credifinsa-green" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                            <span>0992241885</span>
+                        </p>
+                        <p class="flex items-center text-gray-700">
+                           <svg class="w-6 h-6 mr-3 credifinsa-green" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                            <span>Av. Francisco de Orellana, Coop. Los Vergeles, Mz. 225 Solar 9</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 lg:mt-0 lg:w-1/2 lg:pl-12">
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Nombre" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green">
+                            <input type="email" placeholder="Email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green">
+                        </div>
+                        <div class="mt-4">
+                            <input type="tel" placeholder="Teléfono" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green">
+                        </div>
+                        <div class="mt-4">
+                            <textarea placeholder="Mensaje (Ej: 'Quisiera información sobre el plan para vivienda')" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"></textarea>
+                        </div>
+                        <div class="mt-6">
+                            <button type="submit" class="w-full bg-credifinsa-green text-white font-bold py-3 px-6 rounded-full hover:bg-green-700 transition duration-300">
+                                Enviar Solicitud
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">Preguntas Frecuentes</h2>
+                <p class="text-gray-600 mt-2">Resolvemos tus dudas más comunes.</p>
+            </div>
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <details class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <summary class="font-semibold text-lg flex justify-between items-center">
+                        ¿Necesito un garante para aplicar?
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-gray-600">No. Una de las grandes ventajas de nuestro sistema es que no necesitas un garante. La aprobación se basa en tu capacidad de ahorro y planificación.</p>
+                </details>
+                <!-- FAQ Item 2 -->
+                <details class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <summary class="font-semibold text-lg flex justify-between items-center">
+                        ¿Qué pasa si me atraso en una cuota?
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-gray-600">Entendemos que pueden surgir imprevistos. Ofrecemos opciones flexibles para que puedas ponerte al día. Comunícate con tu asesor para encontrar la mejor solución.</p>
+                </details>
+                <!-- FAQ Item 3 -->
+                <details class="faq-item bg-white p-6 rounded-lg shadow-lg">
+                    <summary class="font-semibold text-lg flex justify-between items-center">
+                        ¿Puedo adelantar cuotas para recibir mi bien antes?
+                        <svg class="w-5 h-5 text-gray-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <p class="mt-4 text-gray-600">¡Sí! Puedes realizar abonos extraordinarios a tu plan para adelantar la adjudicación de tu crédito. Es una excelente forma de alcanzar tu meta más rápido.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Techmate. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Una forma inteligente de construir tu futuro.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/593992241885?text=Hola,%20quisiera%20más%20información%20sobre%20los%20planes%20de%20Credifinsa." target="_blank" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg transform hover:scale-110 transition-transform duration-300 z-50">
+        <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.75,13.96C17.09,14.3 17.08,14.88 16.74,15.22C16.4,15.56 15.82,15.57 15.48,15.23C15.14,14.89 14.23,13.96 13.57,13.3C12.91,12.64 12.33,12.23 11.91,12.23C11.49,12.23 10.46,12.87 9.9,13.43C9.34,13.99 8.78,14.34 8.5,14.34C8.22,14.34 7.5,14.12 6.9,13.52C6.3,12.92 5.31,11.86 5.3,10.7C5.29,9.54 6.13,8.59 6.4,8.32C6.67,8.05 6.97,8 7.21,8H7.66C7.94,8 8.16,8.22 8.28,8.49C8.4,8.76 8.78,9.75 8.83,9.88C8.88,10.01 8.83,10.19 8.68,10.34L8.35,10.67C8.24,10.78 8.11,10.95 8.24,11.1C8.37,11.25 8.92,11.78 9.8,12.66C10.68,13.54 11.21,13.68 11.36,13.55L11.69,13.22C11.84,13.07 12.02,13.02 12.15,13.07C12.28,13.12 13.27,13.5 13.54,13.62C13.81,13.74 14.03,13.96 14.03,14.24V14.69C14.03,14.97 13.96,15.19 13.73,15.31C13.5,15.43 13.12,15.64 12.39,16.19C11.66,16.74 10.59,17.11 9.8,17.11C9.01,17.11 7.5,16.78 6.25,15.53C5,14.28 4,12.29 4,10.7C4,9.11 4.88,7.63 6.06,6.45C7.24,5.27 8.72,4.39 10.31,4.39C11.9,4.39 13.4,5.25 14.6,6.45C15.8,7.65 16.69,9.15 16.69,10.74C16.69,11.93 16.32,13.11 15.58,13.96H16.75Z"></path>
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Add a small delay to allow navigation before hiding
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

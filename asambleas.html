@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asambleas de Adjudicación - Credifinsa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .credifinsa-green { color: #008f39; }
+        .bg-credifinsa-green { background-color: #008f39; }
+        .border-credifinsa-green { border-color: #008f39; }
+        .hero-bg-asambleas {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1573496773905-f5b17e76b254?q=80&w=2669&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center 70%;
+        }
+        .aspect-video {
+            aspect-ratio: 16 / 9;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Images/logo-credifinsa-100x100.png" alt="Logo Credifinsa" class="h-10 w-10">
+                <span class="text-2xl font-bold text-gray-800">Credifinsa</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
+                <a href="nosotros.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
+                <a href="asambleas.html" class="credifinsa-green font-semibold transition duration-300">Asambleas</a>
+                <a href="cotizador.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Simulador</a>
+                <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                    Cotiza Ahora
+                </a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+             <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="nosotros.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nosotros</a>
+            <a href="asambleas.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Asambleas</a>
+            <a href="cotizador.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Simulador</a>
+            <div class="px-6 mt-4">
+                 <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="block text-center bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                    Cotiza Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg-asambleas text-white">
+        <div class="container mx-auto px-6 py-24 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight">Asambleas Públicas de Adjudicación</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">La transparencia es nuestro compromiso. Aquí puedes ver las grabaciones de nuestras asambleas mensuales y conocer a los felices adjudicados.</p>
+        </div>
+    </section>
+
+    <!-- Asambleas List Section -->
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+
+            <!-- Asamblea Reciente -->
+            <article class="bg-white rounded-lg shadow-xl p-8 md:p-10 mb-12">
+                <header class="mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800">Asamblea de Agosto 2025</h2>
+                    <p class="text-gray-500">Transmitida el 1 de Septiembre, 2025</p>
+                </header>
+                
+                <div class="w-full aspect-video mb-6">
+                     <iframe class="w-full h-full rounded-lg shadow-md" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                <div class="prose max-w-none text-gray-600">
+                    <p class="font-semibold text-lg text-gray-700">¡Un mes lleno de sueños cumplidos! En nuestra última asamblea, 12 familias y personas fueron adjudicadas. Felicitamos a los nuevos propietarios de vehículos y viviendas que confiaron en Credifinsa.</p>
+                </div>
+
+                <section class="mt-8">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-4">Galería de Adjudicados</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <img src="Images/victor-parrales-adjudicados.jpg" alt="Cliente feliz recibiendo llaves de su auto" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="Images/teodoro-lavayen-adjudicados.jpg" alt="Familia sonriendo frente a su nueva casa" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="Images/ruth-mariduena-adjudicados.jpg" alt="Persona mostrando las llaves de su vehículo nuevo" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="Images/gina-martinez-adjudicados.jpg" alt="Pareja abrazándose frente a su casa" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                </section>
+            </article>
+
+            <!-- Asamblea Anterior -->
+            <article class="bg-white rounded-lg shadow-xl p-8 md:p-10 mb-12">
+                <header class="mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800">Asamblea de Julio 2025</h2>
+                    <p class="text-gray-500">Transmitida el 1 de Agosto, 2025</p>
+                </header>
+
+                <div class="w-full aspect-video mb-6">
+                    <iframe class="w-full h-full rounded-lg shadow-md" src="https://www.youtube.com/embed/xvFZjo5PgG0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+                 <div class="prose max-w-none text-gray-600">
+                    <p class="font-semibold text-lg text-gray-700">El mes de Septiembre trajo grandes noticias para 9 de nuestros clientes. Revisa la transmisión completa y comparte la emoción de los nuevos adjudicados.</p>
+                </div>
+                
+                 <section class="mt-8">
+                    <h3 class="text-2xl font-bold text-gray-700 mb-4">Galería de Adjudicados</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <img src="Images/gricelda-bermello-adjudicados.jpg" alt="Asesor entregando llaves a cliente" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="Images/jessica-macias-adjudicados.jpg" alt="Cliente sonriendo dentro de su nuevo auto" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="Images/estela-vera-adjudicados.jpg" alt="Familia en la puerta de su nueva vivienda" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                        <img src="Images/david-chompol-adjudicados.jpg" alt="Entrega de un vehículo nuevo a un cliente" class="w-full h-40 object-cover rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300">
+                    </div>
+                </section>
+            </article>
+
+             <!-- Call to Action Section -->
+            <section id="cta" class="py-16 text-center">
+                <div class="bg-white rounded-lg shadow-xl p-12">
+                    <h2 class="text-4xl font-bold text-gray-800">¿Quieres ser el próximo en la lista?</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Tu sueño de tener auto o casa propia está más cerca de lo que imaginas. Usa nuestro simulador para dar el primer paso hoy mismo.</p>
+                    <div class="mt-8">
+                        <a href="cotizador.html" class="bg-credifinsa-green text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-green-700 transition duration-300 inline-block">
+                            Ir al Simulador de Crédito
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 Credifinsa. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Una forma inteligente de construir tu futuro.</p>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

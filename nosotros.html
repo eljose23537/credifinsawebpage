@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Credifinsa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .credifinsa-green { color: #008f39; }
+        .bg-credifinsa-green { background-color: #008f39; }
+        .border-credifinsa-green { border-color: #008f39; }
+        .hero-bg-nosotros {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Images/logo-credifinsa-100x100.png" alt="Logo Credifinsa" class="h-10 w-10">
+                <span class="text-2xl font-bold text-gray-800">Credifinsa</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
+                <a href="nosotros.html" class="credifinsa-green font-semibold transition duration-300">Nosotros</a>
+                <a href="index.html#servicios" class="text-gray-600 hover:credifinsa-green transition duration-300">Nuestros Planes</a>
+                <a href="index.html#beneficios" class="text-gray-600 hover:credifinsa-green transition duration-300">Beneficios</a>
+                <a href="index.html#contacto" class="text-gray-600 hover:credifinsa-green transition duration-300">Contacto</a>
+                <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                    Cotiza Ahora
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+            <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="nosotros.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Nosotros</a>
+            <a href="index.html#servicios" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nuestros Planes</a>
+            <a href="index.html#beneficios" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Beneficios</a>
+            <a href="index.html#contacto" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Contacto</a>
+            <div class="px-6 mt-4">
+                 <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="block text-center bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
+                    Cotiza Ahora
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio-nosotros" class="hero-bg-nosotros text-white">
+        <div class="container mx-auto px-6 py-32 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-wider leading-tight">Conoce a Credifinsa</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Somos más que una empresa de financiamiento; somos un equipo comprometido con hacer realidad los sueños de nuestros clientes.</p>
+        </div>
+    </section>
+
+    <!-- Nuestra Historia Section -->
+    <section id="historia" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="pr-8">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Nuestra Historia</h2>
+                    <p class="text-gray-600 mb-4">
+                        Credifinsa nació de una idea simple: hacer que la compra de bienes importantes, como un vehículo o una vivienda, fuera accesible para todos, sin las barreras y complicaciones de la banca tradicional. 
+                    </p>
+                    <p class="text-gray-600 mb-4">
+                        Fundada en [Año de Fundación], comenzamos con un pequeño equipo de profesionales apasionados por las finanzas y el servicio al cliente. Vimos que muchas personas y familias luchaban por cumplir los estrictos requisitos crediticios y se enfrentaban a tasas de interés impagables. Decidimos crear un sistema diferente, basado en la confianza y la planificación.
+                    </p>
+                    <p class="text-gray-600">
+                        Hoy, nos enorgullece haber ayudado a cientos de clientes a alcanzar sus metas a través de nuestro innovador sistema de compra programada. Seguimos creciendo, pero nuestro compromiso inicial sigue intacto: ofrecer un camino claro y justo hacia tus sueños.
+                    </p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2568&auto=format&fit=crop" alt="Equipo de Credifinsa en una reunión" class="rounded-lg shadow-2xl w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Misión y Visión Section -->
+    <section id="mision-vision" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 text-center">
+                <!-- Misión -->
+                <div class="bg-white p-8 rounded-lg shadow-xl">
+                    <h3 class="text-3xl font-bold mb-4 text-gray-800">Nuestra Misión</h3>
+                    <p class="text-gray-600">
+                        Facilitar el acceso a bienes fundamentales como vehículos y viviendas a través de planes de compra programada justos, transparentes y flexibles, impulsando el progreso y bienestar de nuestros clientes.
+                    </p>
+                </div>
+                <!-- Visión -->
+                <div class="bg-white p-8 rounded-lg shadow-xl">
+                    <h3 class="text-3xl font-bold mb-4 text-gray-800">Nuestra Visión</h3>
+                    <p class="text-gray-600">
+                        Ser la empresa líder y de mayor confianza en el mercado de compra programada, reconocidos por nuestra integridad, innovación y el impacto positivo que generamos en la vida de las familias ecuatorianas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestros Valores Section -->
+    <section id="valores" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800">Nuestros Valores</h2>
+                <p class="text-gray-600 mt-2">Los principios que guían cada una de nuestras acciones.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Valor 1: Confianza -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.517-1.009 6.789-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-1.026.977-2.17.977-3.345 0-3.517-1.009-6.789-2.753-9.571M12 20.25a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H12a.75.75 0 01-.75-.75v-.008z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Confianza</h3>
+                    <p class="text-gray-600">Construimos relaciones a largo plazo basadas en la honestidad y el cumplimiento de nuestra palabra.</p>
+                </div>
+                <!-- Valor 2: Compromiso -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Compromiso</h3>
+                    <p class="text-gray-600">Estamos dedicados al éxito de nuestros clientes. Su meta es nuestra meta.</p>
+                </div>
+                <!-- Valor 3: Transparencia -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Transparencia</h3>
+                    <p class="text-gray-600">Procesos claros, sin letras pequeñas ni costos ocultos. Siempre sabrás dónde estás parado.</p>
+                </div>
+                <!-- Valor 4: Innovación -->
+                <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+                    <div class="bg-green-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 credifinsa-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Innovación</h3>
+                    <p class="text-gray-600">Buscamos constantemente mejorar nuestros procesos y servicios para ofrecerte la mejor experiencia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section id="cta" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold text-gray-800">¿Listo para dar el siguiente paso?</h2>
+            <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Únete a la familia Credifinsa y empieza a construir el futuro que siempre has querido. Contáctanos hoy y descubre cómo podemos ayudarte.</p>
+            <div class="mt-8">
+                <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="bg-credifinsa-green text-white font-bold px-8 py-4 rounded-full text-lg hover:bg-green-700 transition duration-300">
+                    Solicitar Asesoría
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Credifinsa. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Una forma inteligente de construir tu futuro.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/593992241885?text=Hola,%20quisiera%20más%20información%20sobre%20los%20planes%20de%20Credifinsa." target="_blank" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg transform hover:scale-110 transition-transform duration-300 z-50">
+        <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16.75,13.96C17.09,14.3 17.08,14.88 16.74,15.22C16.4,15.56 15.82,15.57 15.48,15.23C15.14,14.89 14.23,13.96 13.57,13.3C12.91,12.64 12.33,12.23 11.91,12.23C11.49,12.23 10.46,12.87 9.9,13.43C9.34,13.99 8.78,14.34 8.5,14.34C8.22,14.34 7.5,14.12 6.9,13.52C6.3,12.92 5.31,11.86 5.3,10.7C5.29,9.54 6.13,8.59 6.4,8.32C6.67,8.05 6.97,8 7.21,8H7.66C7.94,8 8.16,8.22 8.28,8.49C8.4,8.76 8.78,9.75 8.83,9.88C8.88,10.01 8.83,10.19 8.68,10.34L8.35,10.67C8.24,10.78 8.11,10.95 8.24,11.1C8.37,11.25 8.92,11.78 9.8,12.66C10.68,13.54 11.21,13.68 11.36,13.55L11.69,13.22C11.84,13.07 12.02,13.02 12.15,13.07C12.28,13.12 13.27,13.5 13.54,13.62C13.81,13.74 14.03,13.96 14.03,14.24V14.69C14.03,14.97 13.96,15.19 13.73,15.31C13.5,15.43 13.12,15.64 12.39,16.19C11.66,16.74 10.59,17.11 9.8,17.11C9.01,17.11 7.5,16.78 6.25,15.53C5,14.28 4,12.29 4,10.7C4,9.11 4.88,7.63 6.06,6.45C7.24,5.27 8.72,4.39 10.31,4.39C11.9,4.39 13.4,5.25 14.6,6.45C15.8,7.65 16.69,9.15 16.69,10.74C16.69,11.93 16.32,13.11 15.58,13.96H16.75Z"></path>
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // Add a small delay to allow navigation before hiding
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador de Crédito - Credifinsa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- jsPDF Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.23/jspdf.plugin.autotable.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .credifinsa-green { color: #008f39; }
+        .bg-credifinsa-green { background-color: #008f39; }
+        .border-credifinsa-green { border-color: #008f39; }
+        .hero-bg-cotizador {
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-15179L99144321-2a1c83c95974?q=80&w=2574&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #008f39;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        input[type=range]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #008f39;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .plan-selector button.active {
+            background-color: #008f39;
+            color: white;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="Images/logo-credifinsa-100x100.png" alt="Logo Credifinsa" class="h-10 w-10">
+                <span class="text-2xl font-bold text-gray-800">Credifinsa</span>
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
+                <a href="nosotros.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
+                <a href="cotizador.html" class="credifinsa-green font-semibold transition duration-300">Cotizador</a>
+                <a href="index.html#servicios" class="text-gray-600 hover:credifinsa-green transition duration-300">Nuestros Planes</a>
+                <a href="index.html#contacto" class="text-gray-600 hover:credifinsa-green transition duration-300">Contacto</a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
+            <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="nosotros.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nosotros</a>
+            <a href="cotizador.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Cotizador</a>
+            <a href="index.html#servicios" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nuestros Planes</a>
+            <a href="index.html#contacto" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg-cotizador text-white">
+        <div class="container mx-auto px-6 py-24 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight">Calcula tu Plan Ideal</h1>
+            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Usa nuestra herramienta para simular tu crédito y encontrar el plan de pagos que mejor se ajuste a tus necesidades.</p>
+        </div>
+    </section>
+
+    <!-- Cotizador Section -->
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="bg-white rounded-lg shadow-2xl p-8 md:p-12 lg:grid lg:grid-cols-5 gap-12">
+
+                <!-- Formulario de Entrada -->
+                <div class="lg:col-span-2 mb-12 lg:mb-0">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Ingresa los Datos</h2>
+                    <form id="cotizador-form" class="space-y-6">
+                        
+                        <div>
+                            <label class="block font-semibold text-gray-700 mb-2">Elige tu modalidad</label>
+                            <div class="plan-selector grid grid-cols-2 gap-2 bg-gray-200 p-1 rounded-full">
+                                <button type="button" id="btn-con-entrada" class="p-2 rounded-full text-center transition-colors duration-300 active">CON Entrada</button>
+                                <button type="button" id="btn-sin-entrada" class="p-2 rounded-full text-center transition-colors duration-300">SIN Entrada</button>
+                            </div>
+                             <p id="plan-info" class="text-sm text-gray-500 mt-2 text-center font-semibold"></p>
+                        </div>
+
+                        <div>
+                            <label for="valor-vehiculo" class="block font-semibold text-gray-700 mb-2">Valor del Vehículo ($)</label>
+                            <input type="number" id="valor-vehiculo" placeholder="Ej: 20000" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green text-lg" required>
+                        </div>
+                        
+                        <fieldset id="entrada-fieldset" class="space-y-6">
+                            <div>
+                                <label for="porcentaje-entrada" class="block font-semibold text-gray-700 mb-2">¿Qué porcentaje de entrada darías? <span id="porcentaje-display" class="font-bold credifinsa-green">40%</span></label>
+                                <input type="range" id="porcentaje-entrada" min="10" max="90" value="40" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            
+                            <div>
+                                <label for="valor-entrada" class="block font-semibold text-gray-700 mb-2">Valor de Entrada ($)</label>
+                                <input type="number" id="valor-entrada" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green text-lg">
+                            </div>
+                        </fieldset>
+
+                        <div class="bg-gray-100 p-4 rounded-lg text-center">
+                            <p class="text-gray-600">Monto aproximado a financiar:</p>
+                            <p id="monto-financiar" class="text-2xl font-bold credifinsa-green">$0.00</p>
+                        </div>
+                        
+                        <fieldset class="border border-dashed border-gray-300 p-4 rounded-lg">
+                            <legend class="px-2 text-sm font-medium text-gray-600">Tus datos (Opcional)</legend>
+                             <div class="space-y-4">
+                                <p class="text-xs text-gray-500 text-center">Llena estos campos si quieres que aparezcan en tu PDF de simulación.</p>
+                                <div>
+                                    <label for="nombre-cliente" class="sr-only">Nombre</label>
+                                    <input type="text" id="nombre-cliente" placeholder="Tu Nombre y Apellido" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green">
+                                </div>
+                             </div>
+                        </fieldset>
+
+                        <div>
+                            <button type="button" id="calcular-btn" class="w-full bg-credifinsa-green text-white font-bold py-4 px-6 rounded-full hover:bg-green-700 transition duration-300 text-lg">
+                                Simular Plan de Pagos
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Resultados -->
+                <div class="lg:col-span-3">
+                     <h2 class="text-3xl font-bold text-gray-800 mb-6">Tu Plan de Pagos Simulado</h2>
+                     <div id="results-container" class="hidden">
+                         <p class="text-gray-600 mb-4">Estas serían tus cuotas mensuales aproximadas según el plazo que elijas.</p>
+                         <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-lg" id="cotizacion-table">
+                                <thead>
+                                    <tr class="bg-gray-50 border-b">
+                                        <th class="text-left font-semibold p-4">Plazo (Meses)</th>
+                                        <th class="text-right font-semibold p-4 bg-green-100">Cuota Mensual Aproximada</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="results-body">
+                                    <!-- Rows will be injected by JavaScript -->
+                                </tbody>
+                            </table>
+                         </div>
+                         <div class="mt-8">
+                             <button id="pdf-download-btn" class="w-full sm:w-auto bg-gray-800 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-700 transition duration-300 flex items-center justify-center disabled:opacity-50">
+                               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Descargar Simulación en PDF
+                            </button>
+                         </div>
+                         
+                         <!-- CALL TO ACTION (MI PROPUESTA) -->
+                         <div class="mt-8 p-6 bg-green-50 border-l-4 border-credifinsa-green rounded-r-lg">
+                            <h3 class="text-xl font-bold text-gray-800">¿Te gustó esta simulación? ¡Hazla realidad!</h3>
+                            <p class="text-gray-600 mt-2">Un asesor experto está listo para ayudarte a dar el siguiente paso. Contáctanos sin compromiso.</p>
+                            <div class="mt-4">
+                                <a href="https://wa.me/593992241885?text=Hola,%20hice%20una%20simulación%20en%20la%20web%20y%20quisiera%20más%20información." target="_blank" class="inline-block bg-credifinsa-green text-white font-bold py-2 px-5 rounded-full hover:bg-green-700 transition duration-300">
+                                    Hablar con un Asesor
+                                </a>
+                            </div>
+                         </div>
+
+                     </div>
+                     <div id="initial-message" class="flex items-center justify-center bg-gray-100 rounded-lg h-full min-h-[300px]">
+                         <p class="text-gray-500 text-center p-8">Los resultados de tu simulación aparecerán aquí. ¡Es fácil y rápido!</p>
+                     </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Credifinsa. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Una forma inteligente de construir tu futuro.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const { jsPDF } = window.jspdf;
+            
+            // --- DATA MODEL & CONFIG ---
+            const IVA_ADMIN_RATE = 0.15;
+            const config = {
+              // Mapeo de términos públicos a internos
+              CON_ENTRADA: { 
+                  porcentajeInscripcion: 0.05,
+                  deducible: 0.09,
+                  tasaInteresAnual: 0.085,
+              },
+              SIN_ENTRADA: {
+                  porcentajeInscripcion: 0.06,
+                  deducible: 0.12,
+                  tasaInteresAnual: 0.065,
+              },
+              plazos: [84, 72, 60, 48, 36, 24, 12, 6]
+            };
+
+            // --- UI ELEMENTS ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const valorVehiculoInput = document.getElementById('valor-vehiculo');
+            const porcentajeEntradaSlider = document.getElementById('porcentaje-entrada');
+            const porcentajeDisplay = document.getElementById('porcentaje-display');
+            const valorEntradaInput = document.getElementById('valor-entrada');
+            const montoFinanciarDisplay = document.getElementById('monto-financiar');
+            const calcularBtn = document.getElementById('calcular-btn');
+            const resultsContainer = document.getElementById('results-container');
+            const initialMessage = document.getElementById('initial-message');
+            const resultsBody = document.getElementById('results-body');
+            const pdfDownloadBtn = document.getElementById('pdf-download-btn');
+            const btnConEntrada = document.getElementById('btn-con-entrada');
+            const btnSinEntrada = document.getElementById('btn-sin-entrada');
+            const entradaFieldset = document.getElementById('entrada-fieldset');
+            const planInfo = document.getElementById('plan-info');
+            
+            let selectedPlan = 'CON_ENTRADA';
+
+            // --- HELPERS ---
+            const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Math.max(0, value));
+            
+            // --- UI LOGIC ---
+            function updateUIAndCalculations() {
+                const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
+                let valorEntrada = 0;
+                
+                if (selectedPlan === 'CON_ENTRADA') {
+                    const porcentaje = parseFloat(porcentajeEntradaSlider.value);
+                    valorEntrada = valorVehiculo * (porcentaje / 100);
+                    valorEntradaInput.value = valorEntrada > 0 ? valorEntrada.toFixed(2) : '';
+                }
+
+                const planConfig = config[selectedPlan];
+                const deducible = valorVehiculo * planConfig.deducible;
+                let montoAFinanciarFinal;
+
+                if (selectedPlan === 'SIN_ENTRADA') {
+                    montoAFinanciarFinal = valorVehiculo;
+                } else {
+                    montoAFinanciarFinal = (valorVehiculo - valorEntrada) + deducible;
+                }
+                
+                montoFinanciarDisplay.textContent = formatCurrency(montoAFinanciarFinal);
+            }
+            
+            function handleEntradaValueChange() {
+                if (selectedPlan === 'SIN_ENTRADA') return;
+                const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
+                const valorEntrada = parseFloat(valorEntradaInput.value) || 0;
+                if (valorVehiculo > 0) {
+                    const newPercentage = Math.min(90, Math.max(10, Math.round((valorEntrada / valorVehiculo) * 100)));
+                    porcentajeEntradaSlider.value = newPercentage;
+                    porcentajeDisplay.textContent = `${newPercentage}%`;
+                }
+                updateUIAndCalculations();
+            }
+            
+            function handleSliderChange() {
+                if (selectedPlan === 'SIN_ENTRADA') return;
+                const porcentaje = parseFloat(porcentajeEntradaSlider.value);
+                porcentajeDisplay.textContent = `${porcentaje}%`;
+                updateUIAndCalculations();
+            }
+
+            function switchPlan(plan) {
+                selectedPlan = plan;
+                btnConEntrada.classList.toggle('active', plan === 'CON_ENTRADA');
+                btnSinEntrada.classList.toggle('active', plan === 'SIN_ENTRADA');
+                
+                if (plan === 'SIN_ENTRADA') {
+                    planInfo.textContent = 'Calcula tu cuota sin necesidad de una entrada.';
+                    entradaFieldset.style.display = 'none';
+                    valorEntradaInput.value = '';
+                } else {
+                    planInfo.textContent = 'Elige la entrada que mejor se ajuste a tu presupuesto.';
+                    entradaFieldset.style.display = 'block';
+                    porcentajeEntradaSlider.value = 40;
+                    porcentajeDisplay.textContent = '40%';
+                }
+                
+                updateUIAndCalculations();
+                resultsContainer.classList.add('hidden');
+                initialMessage.classList.remove('hidden');
+            }
+
+            // --- EVENT LISTENERS ---
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            valorVehiculoInput.addEventListener('input', updateUIAndCalculations);
+            porcentajeEntradaSlider.addEventListener('input', handleSliderChange);
+            valorEntradaInput.addEventListener('input', handleEntradaValueChange);
+            btnConEntrada.addEventListener('click', () => switchPlan('CON_ENTRADA'));
+            btnSinEntrada.addEventListener('click', () => switchPlan('SIN_ENTRADA'));
+
+            calcularBtn.addEventListener('click', () => {
+                const valorVehiculo = parseFloat(valorVehiculoInput.value);
+                if (isNaN(valorVehiculo) || valorVehiculo <= 0) {
+                    alert('Por favor, ingresa un valor de vehículo válido.');
+                    return;
+                }
+
+                let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
+                if (selectedPlan === 'SIN_ENTRADA') valorEntrada = 0;
+                
+                const planConfig = config[selectedPlan];
+                const deducible = valorVehiculo * planConfig.deducible;
+                const montoAFinanciarFinal = (selectedPlan === 'SIN_ENTRADA') ? valorVehiculo : (valorVehiculo - valorEntrada) + deducible;
+
+                resultsBody.innerHTML = ''; 
+
+                config.plazos.forEach(plazo => {
+                    const cuotaCapital = montoAFinanciarFinal / plazo;
+                    const cuotaAdministrativa = cuotaCapital * (planConfig.tasaInteresAnual * (plazo / 12));
+                    const ivaAdmin = cuotaAdministrativa * IVA_ADMIN_RATE;
+                    const cuotaTotal = cuotaCapital + cuotaAdministrativa + ivaAdmin;
+
+                    const row = document.createElement('tr');
+                    row.className = 'border-b hover:bg-gray-50';
+                    row.innerHTML = `
+                        <td class="p-4 font-semibold">${plazo}</td>
+                        <td class="p-4 text-right font-bold credifinsa-green bg-green-50">${formatCurrency(cuotaTotal)}</td>
+                    `;
+                    resultsBody.appendChild(row);
+                });
+
+                initialMessage.classList.add('hidden');
+                resultsContainer.classList.remove('hidden');
+            });
+            
+            // --- PDF LOGIC (SIMPLIFICADO) ---
+            pdfDownloadBtn.addEventListener('click', () => {
+                pdfDownloadBtn.disabled = true;
+                pdfDownloadBtn.innerHTML = `<svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Generando...`;
+
+                setTimeout(() => {
+                    try {
+                        const doc = new jsPDF();
+                        const nombreCliente = document.getElementById('nombre-cliente').value || 'Cliente Web';
+                        const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
+                        let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
+                        if (selectedPlan === 'SIN_ENTRADA') valorEntrada = 0;
+                        
+                        const now = new Date();
+                        const fechaEmision = now.toLocaleDateString('es-EC');
+
+                        // PDF HEADER
+                        doc.setFillColor(0, 143, 57);
+                        doc.rect(0, 0, 210, 35, 'F');
+                        doc.setTextColor(255, 255, 255);
+                        doc.setFontSize(24);
+                        doc.setFont(undefined, 'bold');
+                        doc.text("Credifinsa", 14, 23);
+
+                        // PDF BODY
+                        let currentY = 50;
+                        doc.setTextColor(30, 30, 30);
+                        doc.setFontSize(16);
+                        doc.setFont(undefined, 'bold');
+                        doc.text("Simulación de Plan de Compra", 105, currentY, null, null, 'center');
+                        
+                        currentY += 8;
+                        doc.setFontSize(10);
+                        doc.setFont(undefined, 'normal');
+                        doc.text(`Simulación para: ${nombreCliente}`, 14, currentY);
+                        doc.text(`Fecha: ${fechaEmision}`, 196, currentY, null, null, 'right');
+                        
+                        currentY += 10;
+                        doc.autoTable({
+                            head: [['Detalle', 'Valor']],
+                            body: [
+                                ['Modalidad', selectedPlan.replace('_', ' ')],
+                                ['Valor del Vehículo', formatCurrency(valorVehiculo)],
+                                ['Valor de Entrada', formatCurrency(valorEntrada)],
+                            ],
+                            startY: currentY,
+                            theme: 'grid'
+                        });
+
+                        let tableY = doc.lastAutoTable.finalY + 8;
+                        doc.autoTable({
+                            html: '#cotizacion-table',
+                            startY: tableY,
+                            theme: 'grid',
+                            headStyles: { fillColor: [0, 143, 57], textColor: [255, 255, 255], fontStyle: 'bold' },
+                            didParseCell: (data) => {
+                                if (data.column.index === 1 && data.cell.section === 'body') {
+                                   data.cell.styles.fillColor = '#F0FFF4';
+                                   data.cell.styles.textColor = [0, 143, 57];
+                                   data.cell.styles.fontStyle = 'bold';
+                                }
+                            }
+                        });
+
+                        // FOOTER
+                        let finalY = doc.lastAutoTable.finalY;
+                        doc.setFontSize(9);
+                        doc.setTextColor(100, 100, 100);
+                        doc.text("IMPORTANTE: Esta es una simulación generada desde nuestra página web.", 105, finalY + 15, null, null, "center");
+                        doc.text("Los valores son aproximados y pueden variar. Para una cotización formal, acérquese a la agencia de su ciudad.", 105, finalY + 20, null, null, "center");
+                        doc.setFont(undefined, 'bold');
+                        doc.text("¡Gracias por confiar en Credifinsa!", 105, finalY + 25, null, null, "center");
+
+                        doc.save(`Simulacion_Credifinsa_${nombreCliente.replace(/\s/g, '_')}.pdf`);
+
+                    } catch (error) {
+                        console.error("Error generating PDF:", error);
+                        alert("Ocurrió un error al generar el PDF.");
+                    } finally {
+                        pdfDownloadBtn.disabled = false;
+                        pdfDownloadBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>Descargar Simulación en PDF`;
+                    }
+                }, 50);
+            });
+
+            // Initial UI setup
+            switchPlan('CON_ENTRADA');
+        });
+    </script>
+</body>
+</html>
