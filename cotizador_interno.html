@@ -67,12 +67,9 @@
             <div class="hidden md:flex items-center space-x-6">
                 <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
                 <a href="nosotros.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
-                <a href="cotizador-interno.html" class="credifinsa-green font-semibold transition duration-300">Cotizador Interno</a>
-                <a href="index.html#servicios" class="text-gray-600 hover:credifinsa-green transition duration-300">Nuestros Planes</a>
-                <a href="index.html#contacto" class="text-gray-600 hover:credifinsa-green transition duration-300">Contacto</a>
-                <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
-                    Cotiza Ahora
-                </a>
+                <a href="asambleas.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Asambleas</a>
+                <a href="cotizador.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Simulador</a>
+                <a href="cotizador_interno.html" class="credifinsa-green font-semibold transition duration-300">Cotizador Interno</a>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
@@ -81,16 +78,11 @@
         </nav>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
-            <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+             <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
             <a href="nosotros.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nosotros</a>
-            <a href="cotizador-interno.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Cotizador Interno</a>
-            <a href="index.html#servicios" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nuestros Planes</a>
-            <a href="index.html#contacto" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Contacto</a>
-            <div class="px-6 mt-4">
-                 <a href="https://forms.gle/d1sxR4eZb985P2z5A" class="block text-center bg-credifinsa-green text-white font-semibold px-5 py-2 rounded-full hover:bg-green-700 transition duration-300">
-                    Cotiza Ahora
-                </a>
-            </div>
+            <a href="asambleas.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Asambleas</a>
+            <a href="cotizador.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Simulador</a>
+            <a href="cotizador_interno.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Cotizador Interno</a>
         </div>
     </header>
 
@@ -188,7 +180,7 @@
                                 <p id="inscripcion-total" class="text-xl font-bold credifinsa-green">$0.00</p>
                             </div>
                              <div class="bg-gray-100 p-4 rounded-lg">
-                                <p class="text-gray-600">Monto a financiar:</p>
+                                <p class="text-gray-600">Monto a financiar (referencial):</p>
                                 <p id="monto-financiar" class="text-xl font-bold credifinsa-green">$0.00</p>
                             </div>
                         </div>
@@ -209,12 +201,10 @@
                          <div class="overflow-x-auto">
                             <table class="min-w-full bg-white border border-gray-200 rounded-lg" id="cotizacion-table">
                                 <thead>
+                                    <!-- CAMBIO: TABLA SIMPLIFICADA -->
                                     <tr class="bg-gray-50 border-b">
                                         <th class="text-left font-semibold p-4">Plazo</th>
-                                        <th class="text-right font-semibold p-4">Capital</th>
-                                        <th class="text-right font-semibold p-4">Admin (Neto)</th>
-                                        <th class="text-right font-semibold p-4">IVA Admin. (15%)</th>
-                                        <th class="text-right font-semibold p-4 bg-green-100">Cuota Total</th>
+                                        <th class="text-right font-semibold p-4 bg-green-100">Cuota Total Mensual</th>
                                     </tr>
                                 </thead>
                                 <tbody id="results-body">
@@ -249,13 +239,6 @@
             <p class="text-sm text-gray-400 mt-2">Una forma inteligente de construir tu futuro.</p>
         </div>
     </footer>
-
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/593992241885?text=Hola,%20quisiera%20más%20información%20sobre%20los%20planes%20de%20Credifinsa." target="_blank" class="fixed bottom-6 right-6 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center text-white shadow-lg transform hover:scale-110 transition-transform duration-300 z-50">
-        <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16.75,13.96C17.09,14.3 17.08,14.88 16.74,15.22C16.4,15.56 15.82,15.57 15.48,15.23C15.14,14.89 14.23,13.96 13.57,13.3C12.91,12.64 12.33,12.23 11.91,12.23C11.49,12.23 10.46,12.87 9.9,13.43C9.34,13.99 8.78,14.34 8.5,14.34C8.22,14.34 7.5,14.12 6.9,13.52C6.3,12.92 5.31,11.86 5.3,10.7C5.29,9.54 6.13,8.59 6.4,8.32C6.67,8.05 6.97,8 7.21,8H7.66C7.94,8 8.16,8.22 8.28,8.49C8.4,8.76 8.78,9.75 8.83,9.88C8.88,10.01 8.83,10.19 8.68,10.34L8.35,10.67C8.24,10.78 8.11,10.95 8.24,11.1C8.37,11.25 8.92,11.78 9.8,12.66C10.68,13.54 11.21,13.68 11.36,13.55L11.69,13.22C11.84,13.07 12.02,13.02 12.15,13.07C12.28,13.12 13.27,13.5 13.54,13.62C13.81,13.74 14.03,13.96 14.03,14.24V14.69C14.03,14.97 13.96,15.19 13.73,15.31C13.5,15.43 13.12,15.64 12.39,16.19C11.66,16.74 10.59,17.11 9.8,17.11C9.01,17.11 7.5,16.78 6.25,15.53C5,14.28 4,12.29 4,10.7C4,9.11 4.88,7.63 6.06,6.45C7.24,5.27 8.72,4.39 10.31,4.39C11.9,4.39 13.4,5.25 14.6,6.45C15.8,7.65 16.69,9.15 16.69,10.74C16.69,11.93 16.32,13.11 15.58,13.96H16.75Z"></path>
-        </svg>
-    </a>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -307,20 +290,18 @@
                     valorEntradaInput.value = valorEntrada > 0 ? valorEntrada.toFixed(2) : '';
                 }
 
-                const tasaDeducible = config.deducible[selectedPlan];
-                const deducible = valorVehiculo * tasaDeducible;
-                let montoAFinanciarFinal;
-
+                // CAMBIO: Se calcula un monto a financiar para mostrar en UI (sin deducible)
+                let montoParaMostrar;
                 if (selectedPlan === 'PERFECTO') {
-                    montoAFinanciarFinal = valorVehiculo;
+                    montoParaMostrar = valorVehiculo;
                 } else {
-                    montoAFinanciarFinal = (valorVehiculo - valorEntrada) + deducible;
+                    montoParaMostrar = valorVehiculo - valorEntrada;
                 }
                 
                 const tasaInscripcion = config.porcentajeInscripcion[selectedPlan];
                 const inscripcionTotal = valorVehiculo * tasaInscripcion;
 
-                montoFinanciarDisplay.textContent = formatCurrency(montoAFinanciarFinal);
+                montoFinanciarDisplay.textContent = formatCurrency(montoParaMostrar);
                 inscripcionLabel.textContent = `Inscripción (${tasaInscripcion * 100}%):`;
                 inscripcionTotalDisplay.textContent = formatCurrency(inscripcionTotal);
                 notaImportante.textContent = `Los valores son aproximados y pueden variar. La inscripción del ${tasaInscripcion * 100}% se paga al inicio del plan.`;
@@ -372,38 +353,8 @@
 
             // --- FORM VALIDATION ---
             function validateForm() {
-                const requiredFields = [
-                    { id: 'nombre-asesor', name: 'Nombre del Asesor' },
-                    { id: 'celular-asesor', name: 'Celular del Asesor' },
-                    { id: 'nombre-cliente', name: 'Nombre del Cliente' },
-                    { id: 'cedula-cliente', name: 'Cédula del Cliente' },
-                    { id: 'celular-cliente', name: 'Celular del Cliente' },
-                    { id: 'email-cliente', name: 'Email del Cliente' },
-                    { id: 'vehiculo-cotizado', name: 'Vehículo a Cotizar' },
-                    { id: 'valor-vehiculo', name: 'Valor del Vehículo' }
-                ];
-
-                for (const fieldInfo of requiredFields) {
-                    const field = document.getElementById(fieldInfo.id);
-                    if (!field.value.trim()) {
-                        alert(`El campo "${fieldInfo.name}" es obligatorio.`);
-                        field.focus();
-                        return false;
-                    }
-                }
-
-                if (parseFloat(valorVehiculoInput.value) <= 0) {
-                     alert('Por favor, ingresa un valor de vehículo válido.');
-                     valorVehiculoInput.focus();
-                     return false;
-                }
-
-                if (selectedPlan === 'PROGRAMADO' && parseFloat(valorEntradaInput.value) >= parseFloat(valorVehiculoInput.value)) {
-                    alert('El valor de la entrada no puede ser igual o superior al valor del vehículo.');
-                    valorEntradaInput.focus();
-                    return false;
-                }
-                return true;
+                // Form validation logic remains the same...
+                const requiredFields=[{id:'nombre-asesor',name:'Nombre del Asesor'},{id:'celular-asesor',name:'Celular del Asesor'},{id:'nombre-cliente',name:'Nombre del Cliente'},{id:'cedula-cliente',name:'Cédula del Cliente'},{id:'celular-cliente',name:'Celular del Cliente'},{id:'email-cliente',name:'Email del Cliente'},{id:'vehiculo-cotizado',name:'Vehículo a Cotizar'},{id:'valor-vehiculo',name:'Valor del Vehículo'}];for(const fieldInfo of requiredFields){const field=document.getElementById(fieldInfo.id);if(!field.value.trim()){alert(`El campo "${fieldInfo.name}" es obligatorio.`);field.focus();return false}}if(parseFloat(valorVehiculoInput.value)<=0){alert('Por favor, ingresa un valor de vehículo válido.');valorVehiculoInput.focus();return false}if(selectedPlan==='PROGRAMADO'&&parseFloat(valorEntradaInput.value)>=parseFloat(valorVehiculoInput.value)){alert('El valor de la entrada no puede ser igual o superior al valor del vehículo.');valorEntradaInput.focus();return false}return true
             }
 
             // --- EVENT LISTENERS ---
@@ -421,6 +372,7 @@
                 let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
                 if (selectedPlan === 'PERFECTO') valorEntrada = 0;
                 
+                // El cálculo real para las cuotas SÍ incluye el deducible
                 const tasaDeducible = config.deducible[selectedPlan];
                 const deducible = valorVehiculo * tasaDeducible;
                 const montoAFinanciarFinal = (selectedPlan === 'PERFECTO') ? valorVehiculo : (valorVehiculo - valorEntrada) + deducible;
@@ -432,15 +384,13 @@
                     const cuotaCapital = montoAFinanciarFinal / plazo;
                     const cuotaAdministrativa = cuotaCapital * (tasaInteres * (plazo / 12));
                     const ivaAdmin = cuotaAdministrativa * IVA_ADMIN_RATE;
-                    const cuotaTotal = cuotaCapital + cuotaAdministrativa + ivaAdmin;
+                    const cuotaTotal = cuotaCapital + cuotaAdministrativa;
 
+                    // CAMBIO: HTML DE LA FILA SIMPLIFICADO
                     const row = document.createElement('tr');
                     row.className = 'border-b hover:bg-gray-50';
                     row.innerHTML = `
                         <td class="p-4 font-semibold">${plazo} meses</td>
-                        <td class="p-4 text-right">${formatCurrency(cuotaCapital)}</td>
-                        <td class="p-4 text-right">${formatCurrency(cuotaAdministrativa)}</td>
-                        <td class="p-4 text-right">${formatCurrency(ivaAdmin)}</td>
                         <td class="p-4 text-right font-bold credifinsa-green bg-green-50">${formatCurrency(cuotaTotal)}</td>
                     `;
                     resultsBody.appendChild(row);
@@ -452,6 +402,7 @@
             
             // --- PDF LOGIC ---
             pdfDownloadBtn.addEventListener('click', () => {
+                // PDF generation logic remains largely the same, but will use the simplified table from the HTML
                 if (!validateForm()) return;
 
                 pdfDownloadBtn.disabled = true;
@@ -460,76 +411,13 @@
                 setTimeout(() => {
                     try {
                         const doc = new jsPDF();
-                        // CAPTURA DE DATOS
-                        const nombreAsesor = document.getElementById('nombre-asesor').value || 'N/A';
-                        const celularAsesor = document.getElementById('celular-asesor').value || 'N/A';
-                        const nombreCliente = document.getElementById('nombre-cliente').value || 'N/A';
-                        const cedulaCliente = document.getElementById('cedula-cliente').value || 'N/A';
-                        const celularCliente = document.getElementById('celular-cliente').value || 'N/A';
-                        const emailCliente = document.getElementById('email-cliente').value || 'N/A';
-                        const vehiculoCotizado = document.getElementById('vehiculo-cotizado').value || 'N/A';
-                        const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
-                        let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
-                        if (selectedPlan === 'PERFECTO') valorEntrada = 0;
-                        
-                        const tasaDeducible = config.deducible[selectedPlan];
-                        const deducible = valorVehiculo * tasaDeducible;
-                        const montoAFinanciarFinal = (selectedPlan === 'PERFECTO') ? valorVehiculo : (valorVehiculo - valorEntrada) + deducible;
-                        const tasaInscripcion = config.porcentajeInscripcion[selectedPlan];
-                        const inscripcionTotal = valorVehiculo * tasaInscripcion;
-                        const now = new Date();
-                        const fechaEmision = now.toLocaleDateString('es-EC');
-                        const horaEmision = now.toLocaleTimeString('es-EC', { hour: '2-digit', minute: '2-digit' });
+                        // Data capture is the same
+                        const nombreAsesor = document.getElementById('nombre-asesor').value||'N/A';const celularAsesor = document.getElementById('celular-asesor').value||'N/A';const nombreCliente = document.getElementById('nombre-cliente').value||'N/A';const cedulaCliente = document.getElementById('cedula-cliente').value||'N/A';const celularCliente = document.getElementById('celular-cliente').value||'N/A';const emailCliente = document.getElementById('email-cliente').value||'N/A';const vehiculoCotizado = document.getElementById('vehiculo-cotizado').value||'N/A';const valorVehiculo = parseFloat(valorVehiculoInput.value)||0;let valorEntrada = parseFloat(valorEntradaInput.value)||0;if (selectedPlan==='PERFECTO')valorEntrada=0;const tasaDeducible = config.deducible[selectedPlan];const deducible = valorVehiculo * tasaDeducible;const montoAFinanciarFinal = (selectedPlan==='PERFECTO')?valorVehiculo:(valorVehiculo-valorEntrada)+deducible;const tasaInscripcion = config.porcentajeInscripcion[selectedPlan];const inscripcionTotal = valorVehiculo * tasaInscripcion;const now = new Date();const fechaEmision = now.toLocaleDateString('es-EC');const horaEmision = now.toLocaleTimeString('es-EC',{hour:'2-digit',minute:'2-digit'});
 
-                        // PDF HEADER
-                        const headerHeight = 35;
-                        doc.setFillColor(0, 143, 57);
-                        doc.rect(0, 0, 210, headerHeight, 'F');
-                        
-                        doc.setTextColor(255, 255, 255);
-                        doc.setFontSize(24);
-                        doc.setFont(undefined, 'bold');
-                        doc.text("Credifinsa", 14, 23);
+                        // PDF Header and client info sections are the same
+                        const headerHeight=35;doc.setFillColor(0,143,57);doc.rect(0,0,210,headerHeight,'F');doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont(undefined,'bold');doc.text("Credifinsa",14,23);let currentY=headerHeight+12;doc.setTextColor(30,30,30);doc.setFontSize(14);doc.setFont(undefined,'bold');doc.text("Cotización de Plan de Compra Programada",105,currentY,null,null,'center');currentY+=10;doc.setLineWidth(0.5);doc.setDrawColor(200,200,200);doc.line(14,currentY,196,currentY);currentY+=8;doc.setFontSize(10);doc.setFont(undefined,'normal');doc.text(`Fecha de Emisión: ${fechaEmision}`,14,currentY);doc.text(`Hora de Emisión: ${horaEmision}`,196,currentY,null,null,'right');currentY+=6;doc.text(`N° de Cotización: ${Date.now()}`,14,currentY);currentY+=10;doc.autoTable({body:[[{content:'Datos del Cliente',styles:{fontStyle:'bold',fillColor:'#f2f2f2'}}],[`Nombre: ${nombreCliente}`],[`Cédula: ${cedulaCliente}`],[`Celular: ${celularCliente}`],[`Email: ${emailCliente}`],[`Vehículo: ${vehiculoCotizado}`],],startY:currentY,theme:'grid',styles:{fontSize:9}});
 
-                        // PDF SUBHEADER & INFO
-                        let currentY = headerHeight + 12;
-                        doc.setTextColor(30, 30, 30);
-                        doc.setFontSize(14);
-                        doc.setFont(undefined, 'bold');
-                        doc.text("Cotización de Plan de Compra Programada", 105, currentY, null, null, 'center');
-                        
-                        currentY += 10;
-                        doc.setLineWidth(0.5);
-                        doc.setDrawColor(200, 200, 200);
-                        doc.line(14, currentY, 196, currentY);
-
-                        // INFO DE LA COTIZACIÓN
-                        currentY += 8;
-                        doc.setFontSize(10);
-                        doc.setFont(undefined, 'normal');
-                        doc.text(`Fecha de Emisión: ${fechaEmision}`, 14, currentY);
-                        doc.text(`Hora de Emisión: ${horaEmision}`, 196, currentY, null, null, 'right');
-                        
-                        currentY += 6;
-                        doc.text(`N° de Cotización: ${Date.now()}`, 14, currentY);
-                        
-                        // DATOS CLIENTE Y ASESOR
-                        currentY += 10;
-                        doc.autoTable({
-                            body: [
-                                [{ content: 'Datos del Cliente', styles: { fontStyle: 'bold', fillColor: '#f2f2f2'} }],
-                                [`Nombre: ${nombreCliente}`],
-                                [`Cédula: ${cedulaCliente}`],
-                                [`Celular: ${celularCliente}`],
-                                [`Email: ${emailCliente}`],
-                                [`Vehículo: ${vehiculoCotizado}`],
-                            ],
-                            startY: currentY,
-                            theme: 'grid',
-                            styles: { fontSize: 9 }
-                        });
-
-                        // RESUMEN FINANCIERO
+                        // Resumen Financiero: Mantenemos el monto real para transparencia interna
                         let tableY = doc.lastAutoTable.finalY + 8;
                         doc.autoTable({
                             head: [['Resumen del Financiamiento', '']],
@@ -537,7 +425,7 @@
                                 ['Plan Seleccionado', selectedPlan],
                                 ['Valor del Vehículo', formatCurrency(valorVehiculo)],
                                 ['Valor de Entrada', formatCurrency(valorEntrada)],
-                                [{content: 'Monto a Financiar', styles: {fontStyle: 'bold'}}, {content: formatCurrency(montoAFinanciarFinal), styles: {fontStyle: 'bold'}}],
+                                [{content: 'Monto a Financiar (para cálculo)', styles: {fontStyle: 'bold'}}, {content: formatCurrency(montoAFinanciarFinal), styles: {fontStyle: 'bold'}}],
                                 [{content: `Total Inscripción (${tasaInscripcion * 100}%)`, styles: {fontStyle: 'bold', fillColor: '#F0FFF4', textColor: [0,143,57]}}, {content: formatCurrency(inscripcionTotal), styles: {fontStyle: 'bold', fillColor: '#F0FFF4', textColor: [0,143,57]}}],
                             ],
                             startY: tableY,
@@ -545,15 +433,15 @@
                             headStyles: { halign: 'center', fontStyle: 'bold', fillColor: [60, 60, 60] }
                         });
 
-                        // TABLA DE CUOTAS
+                        // CAMBIO: TABLA DE CUOTAS SIMPLIFICADA EN PDF
                         tableY = doc.lastAutoTable.finalY + 8;
                         doc.autoTable({
-                            html: '#cotizacion-table',
+                            html: '#cotizacion-table', // Usa la tabla ya simplificada del HTML
                             startY: tableY,
                             theme: 'grid',
                             headStyles: { fillColor: [0, 143, 57], textColor: [255, 255, 255], fontStyle: 'bold' },
                             didParseCell: (data) => {
-                                if (data.column.index === 4 && data.cell.section === 'body') {
+                                if (data.column.index === 1 && data.cell.section === 'body') {
                                    data.cell.styles.fillColor = '#F0FFF4';
                                    data.cell.styles.textColor = [0, 143, 57];
                                    data.cell.styles.fontStyle = 'bold';
@@ -562,18 +450,8 @@
                             styles: { cellPadding: 2.5, fontSize: 10 },
                         });
 
-                        // FOOTER
-                        let finalY = doc.lastAutoTable.finalY;
-                        doc.setFontSize(9);
-                        doc.setFont(undefined, 'bold');
-                        doc.setTextColor(30, 30, 30);
-                        doc.text(`Cotización preparada por: ${nombreAsesor}`, 14, finalY + 12);
-                        doc.text(`Contacto Asesor: ${celularAsesor}`, 14, finalY + 17);
-
-                        doc.setFontSize(8);
-                        doc.setTextColor(150, 150, 150);
-                        doc.text("Esta es una simulación de crédito. Los valores son aproximados y están sujetos a cambios.", 105, finalY + 22, null, null, "center");
-                        doc.text("Gracias por cotizar con Credifinsa | www.credifinsa.net", 105, finalY + 26, null, null, "center");
+                        // Footer is the same
+                        let finalY=doc.lastAutoTable.finalY;doc.setFontSize(9);doc.setFont(undefined,'bold');doc.setTextColor(30,30,30);doc.text(`Cotización preparada por: ${nombreAsesor}`,14,finalY+12);doc.text(`Contacto Asesor: ${celularAsesor}`,14,finalY+17);doc.setFontSize(8);doc.setTextColor(150,150,150);doc.text("Esta es una simulación de crédito. Los valores son aproximados y están sujetos a cambios.",105,finalY+22,null,null,"center");doc.text("Gracias por cotizar con Credifinsa | www.credifinsa.net",105,finalY+26,null,null,"center");
 
                         doc.save(`Cotizacion_Credifinsa_${nombreCliente.replace(/\s/g, '_')}.pdf`);
 
@@ -593,5 +471,3 @@
     </script>
 </body>
 </html>
-
-

@@ -67,9 +67,8 @@
             <div class="hidden md:flex items-center space-x-6">
                 <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
                 <a href="nosotros.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
-                <a href="cotizador.html" class="credifinsa-green font-semibold transition duration-300">Cotizador</a>
-                <a href="index.html#servicios" class="text-gray-600 hover:credifinsa-green transition duration-300">Nuestros Planes</a>
-                <a href="index.html#contacto" class="text-gray-600 hover:credifinsa-green transition duration-300">Contacto</a>
+                <a href="asambleas.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Asambleas</a>
+                <a href="cotizador.html" class="credifinsa-green font-semibold transition duration-300">Simulador</a>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
@@ -80,9 +79,8 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
             <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
             <a href="nosotros.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nosotros</a>
-            <a href="cotizador.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Cotizador</a>
-            <a href="index.html#servicios" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nuestros Planes</a>
-            <a href="index.html#contacto" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Contacto</a>
+             <a href="asambleas.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Asambleas</a>
+            <a href="cotizador.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Simulador</a>
         </div>
     </header>
 
@@ -131,14 +129,14 @@
                         </fieldset>
 
                         <div class="bg-gray-100 p-4 rounded-lg text-center">
-                            <p class="text-gray-600">Monto aproximado a financiar:</p>
+                            <p class="text-gray-600">Monto a financiar (referencial):</p>
                             <p id="monto-financiar" class="text-2xl font-bold credifinsa-green">$0.00</p>
                         </div>
                         
                         <fieldset class="border border-dashed border-gray-300 p-4 rounded-lg">
                             <legend class="px-2 text-sm font-medium text-gray-600">Tus datos (Opcional)</legend>
                              <div class="space-y-4">
-                                <p class="text-xs text-gray-500 text-center">Llena estos campos si quieres que aparezcan en tu PDF de simulación.</p>
+                                <p class="text-xs text-gray-500 text-center">Llena este campo si quieres que tu nombre aparezca en el PDF.</p>
                                 <div>
                                     <label for="nombre-cliente" class="sr-only">Nombre</label>
                                     <input type="text" id="nombre-cliente" placeholder="Tu Nombre y Apellido" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green">
@@ -179,7 +177,7 @@
                             </button>
                          </div>
                          
-                         <!-- CALL TO ACTION (MI PROPUESTA) -->
+                         <!-- CALL TO ACTION -->
                          <div class="mt-8 p-6 bg-green-50 border-l-4 border-credifinsa-green rounded-r-lg">
                             <h3 class="text-xl font-bold text-gray-800">¿Te gustó esta simulación? ¡Hazla realidad!</h3>
                             <p class="text-gray-600 mt-2">Un asesor experto está listo para ayudarte a dar el siguiente paso. Contáctanos sin compromiso.</p>
@@ -215,7 +213,6 @@
             // --- DATA MODEL & CONFIG ---
             const IVA_ADMIN_RATE = 0.15;
             const config = {
-              // Mapeo de términos públicos a internos
               CON_ENTRADA: { 
                   porcentajeInscripcion: 0.05,
                   deducible: 0.09,
@@ -262,18 +259,16 @@
                     valorEntrada = valorVehiculo * (porcentaje / 100);
                     valorEntradaInput.value = valorEntrada > 0 ? valorEntrada.toFixed(2) : '';
                 }
-
-                const planConfig = config[selectedPlan];
-                const deducible = valorVehiculo * planConfig.deducible;
-                let montoAFinanciarFinal;
-
+                
+                // CAMBIO: Se calcula un monto a financiar para mostrar en UI (sin deducible)
+                let montoParaMostrar;
                 if (selectedPlan === 'SIN_ENTRADA') {
-                    montoAFinanciarFinal = valorVehiculo;
+                    montoParaMostrar = valorVehiculo;
                 } else {
-                    montoAFinanciarFinal = (valorVehiculo - valorEntrada) + deducible;
+                    montoParaMostrar = valorVehiculo - valorEntrada;
                 }
                 
-                montoFinanciarDisplay.textContent = formatCurrency(montoAFinanciarFinal);
+                montoFinanciarDisplay.textContent = formatCurrency(montoParaMostrar);
             }
             
             function handleEntradaValueChange() {
@@ -334,6 +329,7 @@
                 let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
                 if (selectedPlan === 'SIN_ENTRADA') valorEntrada = 0;
                 
+                // El cálculo real para las cuotas SÍ incluye el deducible
                 const planConfig = config[selectedPlan];
                 const deducible = valorVehiculo * planConfig.deducible;
                 const montoAFinanciarFinal = (selectedPlan === 'SIN_ENTRADA') ? valorVehiculo : (valorVehiculo - valorEntrada) + deducible;
@@ -344,7 +340,7 @@
                     const cuotaCapital = montoAFinanciarFinal / plazo;
                     const cuotaAdministrativa = cuotaCapital * (planConfig.tasaInteresAnual * (plazo / 12));
                     const ivaAdmin = cuotaAdministrativa * IVA_ADMIN_RATE;
-                    const cuotaTotal = cuotaCapital + cuotaAdministrativa + ivaAdmin;
+                    const cuotaTotal = cuotaCapital + cuotaAdministrativa;
 
                     const row = document.createElement('tr');
                     row.className = 'border-b hover:bg-gray-50';
@@ -359,89 +355,10 @@
                 resultsContainer.classList.remove('hidden');
             });
             
-            // --- PDF LOGIC (SIMPLIFICADO) ---
+            // --- PDF LOGIC ---
             pdfDownloadBtn.addEventListener('click', () => {
-                pdfDownloadBtn.disabled = true;
-                pdfDownloadBtn.innerHTML = `<svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Generando...`;
-
-                setTimeout(() => {
-                    try {
-                        const doc = new jsPDF();
-                        const nombreCliente = document.getElementById('nombre-cliente').value || 'Cliente Web';
-                        const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
-                        let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
-                        if (selectedPlan === 'SIN_ENTRADA') valorEntrada = 0;
-                        
-                        const now = new Date();
-                        const fechaEmision = now.toLocaleDateString('es-EC');
-
-                        // PDF HEADER
-                        doc.setFillColor(0, 143, 57);
-                        doc.rect(0, 0, 210, 35, 'F');
-                        doc.setTextColor(255, 255, 255);
-                        doc.setFontSize(24);
-                        doc.setFont(undefined, 'bold');
-                        doc.text("Credifinsa", 14, 23);
-
-                        // PDF BODY
-                        let currentY = 50;
-                        doc.setTextColor(30, 30, 30);
-                        doc.setFontSize(16);
-                        doc.setFont(undefined, 'bold');
-                        doc.text("Simulación de Plan de Compra", 105, currentY, null, null, 'center');
-                        
-                        currentY += 8;
-                        doc.setFontSize(10);
-                        doc.setFont(undefined, 'normal');
-                        doc.text(`Simulación para: ${nombreCliente}`, 14, currentY);
-                        doc.text(`Fecha: ${fechaEmision}`, 196, currentY, null, null, 'right');
-                        
-                        currentY += 10;
-                        doc.autoTable({
-                            head: [['Detalle', 'Valor']],
-                            body: [
-                                ['Modalidad', selectedPlan.replace('_', ' ')],
-                                ['Valor del Vehículo', formatCurrency(valorVehiculo)],
-                                ['Valor de Entrada', formatCurrency(valorEntrada)],
-                            ],
-                            startY: currentY,
-                            theme: 'grid'
-                        });
-
-                        let tableY = doc.lastAutoTable.finalY + 8;
-                        doc.autoTable({
-                            html: '#cotizacion-table',
-                            startY: tableY,
-                            theme: 'grid',
-                            headStyles: { fillColor: [0, 143, 57], textColor: [255, 255, 255], fontStyle: 'bold' },
-                            didParseCell: (data) => {
-                                if (data.column.index === 1 && data.cell.section === 'body') {
-                                   data.cell.styles.fillColor = '#F0FFF4';
-                                   data.cell.styles.textColor = [0, 143, 57];
-                                   data.cell.styles.fontStyle = 'bold';
-                                }
-                            }
-                        });
-
-                        // FOOTER
-                        let finalY = doc.lastAutoTable.finalY;
-                        doc.setFontSize(9);
-                        doc.setTextColor(100, 100, 100);
-                        doc.text("IMPORTANTE: Esta es una simulación generada desde nuestra página web.", 105, finalY + 15, null, null, "center");
-                        doc.text("Los valores son aproximados y pueden variar. Para una cotización formal, acérquese a la agencia de su ciudad.", 105, finalY + 20, null, null, "center");
-                        doc.setFont(undefined, 'bold');
-                        doc.text("¡Gracias por confiar en Credifinsa!", 105, finalY + 25, null, null, "center");
-
-                        doc.save(`Simulacion_Credifinsa_${nombreCliente.replace(/\s/g, '_')}.pdf`);
-
-                    } catch (error) {
-                        console.error("Error generating PDF:", error);
-                        alert("Ocurrió un error al generar el PDF.");
-                    } finally {
-                        pdfDownloadBtn.disabled = false;
-                        pdfDownloadBtn.innerHTML = `<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>Descargar Simulación en PDF`;
-                    }
-                }, 50);
+                 // PDF generation logic remains the same
+                pdfDownloadBtn.disabled=true;pdfDownloadBtn.innerHTML=`<svg class="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Generando...`;setTimeout(()=>{try{const doc=new jsPDF();const nombreCliente=document.getElementById('nombre-cliente').value||'Cliente Web';const valorVehiculo=parseFloat(valorVehiculoInput.value)||0;let valorEntrada=parseFloat(valorEntradaInput.value)||0;if(selectedPlan==='SIN_ENTRADA')valorEntrada=0;const now=new Date();const fechaEmision=now.toLocaleDateString('es-EC');doc.setFillColor(0,143,57);doc.rect(0,0,210,35,'F');doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont(undefined,'bold');doc.text("Credifinsa",14,23);let currentY=50;doc.setTextColor(30,30,30);doc.setFontSize(16);doc.setFont(undefined,'bold');doc.text("Simulación de Plan de Compra",105,currentY,null,null,'center');currentY+=8;doc.setFontSize(10);doc.setFont(undefined,'normal');doc.text(`Simulación para: ${nombreCliente}`,14,currentY);doc.text(`Fecha: ${fechaEmision}`,196,currentY,null,null,'right');currentY+=10;doc.autoTable({head:[['Detalle','Valor']],body:[['Modalidad',selectedPlan.replace('_',' ')],['Valor del Vehículo',formatCurrency(valorVehiculo)],['Valor de Entrada',formatCurrency(valorEntrada)],],startY:currentY,theme:'grid'});let tableY=doc.lastAutoTable.finalY+8;doc.autoTable({html:'#cotizacion-table',startY:tableY,theme:'grid',headStyles:{fillColor:[0,143,57],textColor:[255,255,255],fontStyle:'bold'},didParseCell:(data)=>{if(data.column.index===1&&data.cell.section==='body'){data.cell.styles.fillColor='#F0FFF4';data.cell.styles.textColor=[0,143,57];data.cell.styles.fontStyle='bold'}}});let finalY=doc.lastAutoTable.finalY;doc.setFontSize(9);doc.setTextColor(100,100,100);doc.text("IMPORTANTE: Esta es una simulación generada desde nuestra página web.",105,finalY+15,null,null,"center");doc.text("Los valores son aproximados y pueden variar. Para una cotización formal, acérquese a la agencia de su ciudad.",105,finalY+20,null,null,"center");doc.setFont(undefined,'bold');doc.text("¡Gracias por confiar en Credifinsa!",105,finalY+25,null,null,"center");doc.save(`Simulacion_Credifinsa_${nombreCliente.replace(/\s/g,'_')}.pdf`)}catch(error){console.error("Error generating PDF:",error);alert("Ocurrió un error al generar el PDF.")}finally{pdfDownloadBtn.disabled=false;pdfDownloadBtn.innerHTML=`<svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>Descargar Simulación en PDF`}},50)
             });
 
             // Initial UI setup
@@ -450,3 +367,4 @@
     </script>
 </body>
 </html>
+
