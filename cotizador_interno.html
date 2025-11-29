@@ -414,8 +414,19 @@
                         // Data capture is the same
                         const nombreAsesor = document.getElementById('nombre-asesor').value||'N/A';const celularAsesor = document.getElementById('celular-asesor').value||'N/A';const nombreCliente = document.getElementById('nombre-cliente').value||'N/A';const cedulaCliente = document.getElementById('cedula-cliente').value||'N/A';const celularCliente = document.getElementById('celular-cliente').value||'N/A';const emailCliente = document.getElementById('email-cliente').value||'N/A';const vehiculoCotizado = document.getElementById('vehiculo-cotizado').value||'N/A';const valorVehiculo = parseFloat(valorVehiculoInput.value)||0;let valorEntrada = parseFloat(valorEntradaInput.value)||0;if (selectedPlan==='PERFECTO')valorEntrada=0;const tasaDeducible = config.deducible[selectedPlan];const deducible = valorVehiculo * tasaDeducible;const montoAFinanciarFinal = (selectedPlan==='PERFECTO')?valorVehiculo:(valorVehiculo-valorEntrada)+deducible;const tasaInscripcion = config.porcentajeInscripcion[selectedPlan];const inscripcionTotal = valorVehiculo * tasaInscripcion;const now = new Date();const fechaEmision = now.toLocaleDateString('es-EC');const horaEmision = now.toLocaleTimeString('es-EC',{hour:'2-digit',minute:'2-digit'});
 
-                        // PDF Header and client info sections are the same
-                        const headerHeight=35;doc.setFillColor(0,143,57);doc.rect(0,0,210,headerHeight,'F');doc.setTextColor(255,255,255);doc.setFontSize(24);doc.setFont(undefined,'bold');doc.text("Credifinsa",14,23);let currentY=headerHeight+12;doc.setTextColor(30,30,30);doc.setFontSize(14);doc.setFont(undefined,'bold');doc.text("Cotización de Plan de Compra Programada",105,currentY,null,null,'center');currentY+=10;doc.setLineWidth(0.5);doc.setDrawColor(200,200,200);doc.line(14,currentY,196,currentY);currentY+=8;doc.setFontSize(10);doc.setFont(undefined,'normal');doc.text(`Fecha de Emisión: ${fechaEmision}`,14,currentY);doc.text(`Hora de Emisión: ${horaEmision}`,196,currentY,null,null,'right');currentY+=6;doc.text(`N° de Cotización: ${Date.now()}`,14,currentY);currentY+=10;doc.autoTable({body:[[{content:'Datos del Cliente',styles:{fontStyle:'bold',fillColor:'#f2f2f2'}}],[`Nombre: ${nombreCliente}`],[`Cédula: ${cedulaCliente}`],[`Celular: ${celularCliente}`],[`Email: ${emailCliente}`],[`Vehículo: ${vehiculoCotizado}`],],startY:currentY,theme:'grid',styles:{fontSize:9}});
+                        // ===== INICIO DE LA CORRECCIÓN =====
+                        const headerHeight=35;
+                        // doc.setFillColor(0,143,57); // LÍNEA ELIMINADA
+                        // doc.rect(0,0,210,headerHeight,'F'); // LÍNEA ELIMINADA
+                        doc.setTextColor(0,143,57); // CAMBIO a color verde
+                        doc.setFontSize(24);
+                        doc.setFont(undefined,'bold');
+                        doc.text("Credifinsa",14,23);
+                        let currentY=headerHeight+12;
+                        doc.setTextColor(30,30,30); // Se restaura el color de texto
+                        // ===== FIN DE LA CORRECCIÓN =====
+
+                        doc.setFontSize(14);doc.setFont(undefined,'bold');doc.text("Cotización de Plan de Compra Programada",105,currentY,null,null,'center');currentY+=10;doc.setLineWidth(0.5);doc.setDrawColor(200,200,200);doc.line(14,currentY,196,currentY);currentY+=8;doc.setFontSize(10);doc.setFont(undefined,'normal');doc.text(`Fecha de Emisión: ${fechaEmision}`,14,currentY);doc.text(`Hora de Emisión: ${horaEmision}`,196,currentY,null,null,'right');currentY+=6;doc.text(`N° de Cotización: ${Date.now()}`,14,currentY);currentY+=10;doc.autoTable({body:[[{content:'Datos del Cliente',styles:{fontStyle:'bold',fillColor:'#f2f2f2'}}],[`Nombre: ${nombreCliente}`],[`Cédula: ${cedulaCliente}`],[`Celular: ${celularCliente}`],[`Email: ${emailCliente}`],[`Vehículo: ${vehiculoCotizado}`],],startY:currentY,theme:'grid',styles:{fontSize:9}});
 
                         // Resumen Financiero: Mantenemos el monto real para transparencia interna
                         let tableY = doc.lastAutoTable.finalY + 8;
