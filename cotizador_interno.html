@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,22 +16,35 @@
         body {
             font-family: 'Poppins', sans-serif;
         }
-        .credifinsa-green { color: #008f39; }
-        .bg-credifinsa-green { background-color: #008f39; }
-        .border-credifinsa-green { border-color: #008f39; }
+
+        .credifinsa-green {
+            color: #008f39;
+        }
+
+        .bg-credifinsa-green {
+            background-color: #008f39;
+        }
+
+        .border-credifinsa-green {
+            border-color: #008f39;
+        }
+
         .hero-bg-cotizador {
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-15179L99144321-2a1c83c95974?q=80&w=2574&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
         }
+
         input[type="number"]::-webkit-inner-spin-button,
         input[type="number"]::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
+
         input[type="number"] {
             -moz-appearance: textfield;
         }
+
         input[type=range]::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
@@ -40,6 +54,7 @@
             cursor: pointer;
             border-radius: 50%;
         }
+
         input[type=range]::-moz-range-thumb {
             width: 20px;
             height: 20px;
@@ -47,6 +62,7 @@
             cursor: pointer;
             border-radius: 50%;
         }
+
         .plan-selector button.active {
             background-color: #008f39;
             color: white;
@@ -54,6 +70,7 @@
         }
     </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800">
 
     <!-- Header -->
@@ -63,34 +80,88 @@
                 <img src="Images/logo-credifinsa-100x100.png" alt="Logo Credifinsa" class="h-10 w-10">
                 <span class="text-2xl font-bold text-gray-800">Credifinsa</span>
             </a>
-            
+
             <div class="hidden md:flex items-center space-x-6">
                 <a href="index.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Inicio</a>
-                <a href="nosotros.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
-                <a href="asambleas.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Asambleas</a>
-                <a href="cotizador.html" class="text-gray-600 hover:credifinsa-green transition duration-300">Simulador</a>
-                <a href="cotizador_interno.html" class="credifinsa-green font-semibold transition duration-300">Cotizador Interno</a>
+                <a href="nosotros.html"
+                    class="text-gray-600 hover:credifinsa-green transition duration-300">Nosotros</a>
+                <a href="asambleas.html"
+                    class="text-gray-600 hover:credifinsa-green transition duration-300">Asambleas</a>
+                <a href="cotizador.html"
+                    class="text-gray-600 hover:credifinsa-green transition duration-300">Simulador</a>
+                <a href="cotizador_interno.html"
+                    class="credifinsa-green font-semibold transition duration-300">Cotizador Interno</a>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden text-gray-800 focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
             </button>
         </nav>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white pb-4">
-             <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
             <a href="nosotros.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Nosotros</a>
             <a href="asambleas.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Asambleas</a>
             <a href="cotizador.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Simulador</a>
-            <a href="cotizador_interno.html" class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Cotizador Interno</a>
+            <a href="cotizador_interno.html"
+                class="block py-2 px-6 credifinsa-green font-semibold bg-gray-100">Cotizador Interno</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg-cotizador text-white">
-        <div class="container mx-auto px-6 py-24 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold uppercase tracking-wider leading-tight">Cotizador Interno</h1>
-            <p class="mt-4 text-lg md:text-xl max-w-3xl mx-auto">Herramienta de uso exclusivo para asesores de Credifinsa.</p>
+    <section id="cotizador-interno-hero" class="relative bg-gray-900 min-h-[400px] flex items-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2670&auto=format&fit=crop"
+                alt="Oficina Corporativa" class="w-full h-full object-cover opacity-50">
+            <div class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/80 to-transparent"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-white">
+                <div class="flex items-center space-x-2 mb-4">
+                    <span
+                        class="bg-gray-700 border border-gray-500 text-gray-200 px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">
+                        Solo Personal Autorizado
+                    </span>
+                    <span class="flex h-3 w-3 relative">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    <span class="text-xs text-green-400 font-semibold">Sistema Activo</span>
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight mb-4">
+                    Cotizador <span class="text-credifinsa-green">Interno</span>
+                </h1>
+                <p class="text-lg text-gray-300 max-w-lg">
+                    Bienvenido, asesor. Genera proyecciones precisas y descarga PDFs oficiales para tus clientes en
+                    segundos.
+                </p>
+            </div>
+
+            <div
+                class="bg-gray-800/90 backdrop-blur-sm border-l-4 border-credifinsa-green p-6 rounded-r-xl shadow-2xl max-w-sm ml-auto w-full">
+                <h3 class="text-white font-bold text-lg mb-4 border-b border-gray-600 pb-2">Tasas Vigentes (Referencia)
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Plan Programado</span>
+                        <span class="text-white font-mono font-bold bg-green-900/50 px-2 py-1 rounded">8.5% Anual</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-gray-400 text-sm">Plan Perfecto</span>
+                        <span class="text-white font-mono font-bold bg-green-900/50 px-2 py-1 rounded">6.5% Anual</span>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <p class="text-xs text-center text-gray-500 italic">
+                        * Recuerda verificar la identidad del cliente antes de enviar la proforma.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -103,47 +174,71 @@
                 <div class="lg:col-span-2 mb-12 lg:mb-0">
                     <h2 class="text-3xl font-bold text-gray-800 mb-6">Ingresa los Datos</h2>
                     <form id="cotizador-form" class="space-y-6">
-                        
+
                         <!-- DATOS DEL ASESOR (SIMPLIFICADO) -->
                         <fieldset class="border border-gray-300 p-4 rounded-lg">
                             <legend class="px-2 font-semibold text-gray-700">Datos del Asesor</legend>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <label for="nombre-asesor" class="block text-sm font-semibold text-gray-600 mb-1">Nombre y Apellido</label>
-                                    <input type="text" id="nombre-asesor" placeholder="Ej: Ana García" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                    <label for="nombre-asesor"
+                                        class="block text-sm font-semibold text-gray-600 mb-1">Nombre y Apellido</label>
+                                    <input type="text" id="nombre-asesor" placeholder="Ej: Ana García"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                        required>
                                 </div>
                                 <div>
-                                    <label for="celular-asesor" class="block text-sm font-semibold text-gray-600 mb-1">Celular del Asesor</label>
-                                    <input type="tel" id="celular-asesor" placeholder="Ej: 099..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                    <label for="celular-asesor"
+                                        class="block text-sm font-semibold text-gray-600 mb-1">Celular del
+                                        Asesor</label>
+                                    <input type="tel" id="celular-asesor" placeholder="Ej: 099..."
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                        required>
                                 </div>
                             </div>
                         </fieldset>
-                        
+
                         <!-- DATOS DEL CLIENTE (AMPLIADO) -->
                         <fieldset class="border border-gray-300 p-4 rounded-lg">
                             <legend class="px-2 font-semibold text-gray-700">Datos del Cliente</legend>
                             <div class="space-y-4">
                                 <div>
-                                    <label for="nombre-cliente" class="block text-sm font-semibold text-gray-600 mb-1">Nombre del Cliente</label>
-                                    <input type="text" id="nombre-cliente" placeholder="Ej: Juan Pérez" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                    <label for="nombre-cliente"
+                                        class="block text-sm font-semibold text-gray-600 mb-1">Nombre del
+                                        Cliente</label>
+                                    <input type="text" id="nombre-cliente" placeholder="Ej: Juan Pérez"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                        required>
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
-                                     <div>
-                                        <label for="cedula-cliente" class="block text-sm font-semibold text-gray-600 mb-1">Cédula</label>
-                                        <input type="text" id="cedula-cliente" placeholder="Ej: 09..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                    <div>
+                                        <label for="cedula-cliente"
+                                            class="block text-sm font-semibold text-gray-600 mb-1">Cédula</label>
+                                        <input type="text" id="cedula-cliente" placeholder="Ej: 09..."
+                                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                            required>
                                     </div>
                                     <div>
-                                        <label for="celular-cliente" class="block text-sm font-semibold text-gray-600 mb-1">Celular</label>
-                                        <input type="tel" id="celular-cliente" placeholder="Ej: 098..." class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                        <label for="celular-cliente"
+                                            class="block text-sm font-semibold text-gray-600 mb-1">Celular</label>
+                                        <input type="tel" id="celular-cliente" placeholder="Ej: 098..."
+                                            class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                            required>
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="email-cliente" class="block text-sm font-semibold text-gray-600 mb-1">Email</label>
-                                    <input type="email" id="email-cliente" placeholder="Ej: juan.perez@email.com" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                    <label for="email-cliente"
+                                        class="block text-sm font-semibold text-gray-600 mb-1">Email</label>
+                                    <input type="email" id="email-cliente" placeholder="Ej: juan.perez@email.com"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                        required>
                                 </div>
                                 <div>
-                                    <label for="vehiculo-cotizado" class="block text-sm font-semibold text-gray-600 mb-1">Vehículo a Cotizar</label>
-                                    <input type="text" id="vehiculo-cotizado" placeholder="Ej: Kia Sonet" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green" required>
+                                    <label for="vehiculo-cotizado"
+                                        class="block text-sm font-semibold text-gray-600 mb-1">Vehículo a
+                                        Cotizar</label>
+                                    <input type="text" id="vehiculo-cotizado" placeholder="Ej: Kia Sonet"
+                                        class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green"
+                                        required>
                                 </div>
                             </div>
                         </fieldset>
@@ -151,42 +246,54 @@
                         <div>
                             <label class="block font-semibold text-gray-700 mb-2">Selecciona un Plan</label>
                             <div class="plan-selector grid grid-cols-2 gap-2 bg-gray-200 p-1 rounded-full">
-                                <button type="button" id="btn-programado" class="p-2 rounded-full text-center transition-colors duration-300 active">Programado</button>
-                                <button type="button" id="btn-perfecto" class="p-2 rounded-full text-center transition-colors duration-300">Perfecto</button>
+                                <button type="button" id="btn-programado"
+                                    class="p-2 rounded-full text-center transition-colors duration-300 active">Programado</button>
+                                <button type="button" id="btn-perfecto"
+                                    class="p-2 rounded-full text-center transition-colors duration-300">Perfecto</button>
                             </div>
                             <p id="plan-info" class="text-sm text-gray-500 mt-2 text-center font-semibold"></p>
                         </div>
-                        
+
                         <div>
-                            <label for="valor-vehiculo" class="block font-semibold text-gray-700 mb-2">Valor del Vehículo ($)</label>
-                            <input type="number" id="valor-vehiculo" placeholder="Ej: 10000" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green text-lg" required>
+                            <label for="valor-vehiculo" class="block font-semibold text-gray-700 mb-2">Valor del
+                                Vehículo ($)</label>
+                            <input type="number" id="valor-vehiculo" placeholder="Ej: 10000"
+                                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green text-lg"
+                                required>
                         </div>
-                        
+
                         <fieldset id="entrada-fieldset" class="space-y-6">
                             <div>
-                                <label for="porcentaje-entrada" class="block font-semibold text-gray-700 mb-2">Porcentaje de Entrada: <span id="porcentaje-display" class="font-bold credifinsa-green">40%</span></label>
-                                <input type="range" id="porcentaje-entrada" min="10" max="90" value="40" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                <label for="porcentaje-entrada"
+                                    class="block font-semibold text-gray-700 mb-2">Porcentaje de Entrada: <span
+                                        id="porcentaje-display" class="font-bold credifinsa-green">40%</span></label>
+                                <input type="range" id="porcentaje-entrada" min="10" max="90" value="40"
+                                    class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
                             </div>
-                            
+
                             <div>
-                                <label for="valor-entrada" class="block font-semibold text-gray-700 mb-2">Valor de Entrada ($)</label>
-                                <input type="number" id="valor-entrada" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green text-lg" required>
+                                <label for="valor-entrada" class="block font-semibold text-gray-700 mb-2">Valor de
+                                    Entrada ($)</label>
+                                <input type="number" id="valor-entrada"
+                                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-credifinsa-green text-lg"
+                                    required>
                             </div>
                         </fieldset>
 
                         <div class="grid grid-cols-2 gap-4">
-                             <div class="bg-gray-100 p-4 rounded-lg">
+                            <div class="bg-gray-100 p-4 rounded-lg">
                                 <p class="text-gray-600 text-sm" id="inscripcion-label">Inscripción (5%):</p>
                                 <p id="inscripcion-total" class="text-xl font-bold credifinsa-green">$0.00</p>
                             </div>
-                             <div class="bg-gray-100 p-4 rounded-lg">
+                            <div class="bg-gray-100 p-4 rounded-lg">
                                 <p class="text-gray-600">Monto a financiar (referencial):</p>
                                 <p id="monto-financiar" class="text-xl font-bold credifinsa-green">$0.00</p>
                             </div>
                         </div>
 
                         <div>
-                            <button type="button" id="calcular-btn" class="w-full bg-credifinsa-green text-white font-bold py-4 px-6 rounded-full hover:bg-green-700 transition duration-300 text-lg">
+                            <button type="button" id="calcular-btn"
+                                class="w-full bg-credifinsa-green text-white font-bold py-4 px-6 rounded-full hover:bg-green-700 transition duration-300 text-lg">
                                 Calcular Plan de Pagos
                             </button>
                         </div>
@@ -195,10 +302,10 @@
 
                 <!-- Resultados -->
                 <div class="lg:col-span-3">
-                     <h2 class="text-3xl font-bold text-gray-800 mb-6">Plan de Pagos</h2>
-                     <div id="results-container" class="hidden">
-                         <p class="text-gray-600 mb-4">A continuación, las cuotas mensuales según el plazo.</p>
-                         <div class="overflow-x-auto">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-6">Plan de Pagos</h2>
+                    <div id="results-container" class="hidden">
+                        <p class="text-gray-600 mb-4">A continuación, las cuotas mensuales según el plazo.</p>
+                        <div class="overflow-x-auto">
                             <table class="min-w-full bg-white border border-gray-200 rounded-lg" id="cotizacion-table">
                                 <thead>
                                     <!-- CAMBIO: TABLA SIMPLIFICADA -->
@@ -211,46 +318,115 @@
                                     <!-- Rows will be injected by JavaScript -->
                                 </tbody>
                             </table>
-                         </div>
-                         <div class="mt-6 flex flex-col sm:flex-row items-center gap-4">
-                            <button id="pdf-download-btn" class="w-full sm:w-auto bg-gray-800 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-700 transition duration-300 flex items-center justify-center disabled:opacity-50">
-                               <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        </div>
+                        <div class="mt-6 flex flex-col sm:flex-row items-center gap-4">
+                            <button id="pdf-download-btn"
+                                class="w-full sm:w-auto bg-gray-800 text-white font-bold py-3 px-6 rounded-full hover:bg-gray-700 transition duration-300 flex items-center justify-center disabled:opacity-50">
+                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                                </svg>
                                 Descargar Cotización en PDF
                             </button>
-                             <div class="flex-grow p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 rounded-r-lg">
-                                 <p class="font-semibold text-sm">Nota Importante:</p>
-                                 <p class="text-xs" id="nota-importante">Los valores son aproximados y pueden variar. La inscripción se paga al inicio del plan.</p>
-                             </div>
-                         </div>
-                     </div>
-                     <div id="initial-message" class="flex items-center justify-center bg-gray-100 rounded-lg h-full min-h-[300px]">
-                         <p class="text-gray-500 text-center">Los resultados de la cotización aparecerán aquí.</p>
-                     </div>
+                            <div
+                                class="flex-grow p-4 bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 rounded-r-lg">
+                                <p class="font-semibold text-sm">Nota Importante:</p>
+                                <p class="text-xs" id="nota-importante">Los valores son aproximados y pueden variar. La
+                                    inscripción se paga al inicio del plan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="initial-message"
+                        class="flex items-center justify-center bg-gray-100 rounded-lg h-full min-h-[300px]">
+                        <p class="text-gray-500 text-center">Los resultados de la cotización aparecerán aquí.</p>
+                    </div>
                 </div>
 
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
-        <div class="container mx-auto px-6 py-8 text-center">
-            <p>&copy; 2024 Credifinsa. Todos los derechos reservados.</p>
-            <p class="text-sm text-gray-400 mt-2">Una forma inteligente de construir tu futuro.</p>
+    <footer class="bg-gray-900 text-white pt-16 pb-8 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+
+                <div class="col-span-1 md:col-span-1">
+                    <span class="text-2xl font-bold text-white flex items-center gap-2">Credifinsa</span>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                        Una forma inteligente de construir tu futuro. Facilitamos el acceso a vehículos y viviendas
+                        mediante planes programados.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Menú</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-credifinsa-green transition">Inicio</a></li>
+                        <li><a href="nosotros.html" class="hover:text-credifinsa-green transition">Nosotros</a></li>
+                        <li><a href="asambleas.html" class="hover:text-credifinsa-green transition">Asambleas</a></li>
+                        <li><a href="cotizador.html" class="hover:text-credifinsa-green transition">Simulador</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Empresa</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="empleo.html" class="flex items-center hover:text-white transition group">
+                                <span
+                                    class="bg-credifinsa-green text-white text-[10px] px-1.5 py-0.5 rounded mr-2 group-hover:bg-green-600">NUEVO</span>
+                                Trabaja con nosotros
+                            </a></li>
+                        <li><a href="#" class="hover:text-white transition">Términos y Condiciones</a></li>
+                        <li><a href="cotizador_interno.html" class="hover:text-white transition">Acceso Asesores</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white">Contacto</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-credifinsa-green mr-2 mt-0.5" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Av. Francisco de Orellana, Guayaquil
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-credifinsa-green mr-2" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
+                                </path>
+                            </svg>
+                            0992241885
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">&copy;© 2025 Techmate. Todos los derechos reservados.</p>
+            </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const { jsPDF } = window.jspdf;
-            
+
             // --- DATA MODEL & CONFIG ---
             const IVA_ADMIN_RATE = 0.15;
             const config = {
-              porcentajeInscripcion: { "PROGRAMADO": 0.05, "PERFECTO": 0.06 },
-              deducible: { "PROGRAMADO": 0.09, "PERFECTO": 0.12 },
-              tasaInteresAnual: { "PROGRAMADO": 0.085, "PERFECTO": 0.065 },
-              plazos: [84, 72, 60, 48, 36, 24, 12, 6]
+                porcentajeInscripcion: { "PROGRAMADO": 0.05, "PERFECTO": 0.06 },
+                deducible: { "PROGRAMADO": 0.09, "PERFECTO": 0.12 },
+                tasaInteresAnual: { "PROGRAMADO": 0.085, "PERFECTO": 0.065 },
+                plazos: [84, 72, 60, 48, 36, 24, 12, 6]
             };
 
             // --- UI ELEMENTS ---
@@ -273,17 +449,17 @@
             const notaImportante = document.getElementById('nota-importante');
             const entradaFieldset = document.getElementById('entrada-fieldset');
             const planInfo = document.getElementById('plan-info');
-            
+
             let selectedPlan = 'PROGRAMADO';
 
             // --- HELPERS ---
             const formatCurrency = (value) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(Math.max(0, value));
-            
+
             // --- UI LOGIC ---
             function updateUIAndCalculations() {
                 const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
                 let valorEntrada = 0;
-                
+
                 if (selectedPlan === 'PROGRAMADO') {
                     const porcentaje = parseFloat(porcentajeEntradaSlider.value);
                     valorEntrada = valorVehiculo * (porcentaje / 100);
@@ -297,7 +473,7 @@
                 } else {
                     montoParaMostrar = valorVehiculo - valorEntrada;
                 }
-                
+
                 const tasaInscripcion = config.porcentajeInscripcion[selectedPlan];
                 const inscripcionTotal = valorVehiculo * tasaInscripcion;
 
@@ -306,9 +482,9 @@
                 inscripcionTotalDisplay.textContent = formatCurrency(inscripcionTotal);
                 notaImportante.textContent = `Los valores son aproximados y pueden variar. La inscripción del ${tasaInscripcion * 100}% se paga al inicio del plan.`;
             }
-            
+
             function handleEntradaValueChange() {
-                 if (selectedPlan === 'PERFECTO') return;
+                if (selectedPlan === 'PERFECTO') return;
                 const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0;
                 const valorEntrada = parseFloat(valorEntradaInput.value) || 0;
                 if (valorVehiculo > 0) {
@@ -318,7 +494,7 @@
                 }
                 updateUIAndCalculations();
             }
-            
+
             function handleSliderChange() {
                 if (selectedPlan === 'PERFECTO') return;
                 const porcentaje = parseFloat(porcentajeEntradaSlider.value);
@@ -330,7 +506,7 @@
                 selectedPlan = plan;
                 btnProgramado.classList.toggle('active', plan === 'PROGRAMADO');
                 btnPerfecto.classList.toggle('active', plan === 'PERFECTO');
-                
+
                 if (plan === 'PERFECTO') {
                     planInfo.textContent = 'Este plan es SIN ENTRADA.';
                     entradaFieldset.disabled = true;
@@ -345,7 +521,7 @@
                     porcentajeEntradaSlider.value = 40;
                     porcentajeDisplay.textContent = '40%';
                 }
-                
+
                 updateUIAndCalculations();
                 resultsContainer.classList.add('hidden');
                 initialMessage.classList.remove('hidden');
@@ -354,7 +530,7 @@
             // --- FORM VALIDATION ---
             function validateForm() {
                 // Form validation logic remains the same...
-                const requiredFields=[{id:'nombre-asesor',name:'Nombre del Asesor'},{id:'celular-asesor',name:'Celular del Asesor'},{id:'nombre-cliente',name:'Nombre del Cliente'},{id:'cedula-cliente',name:'Cédula del Cliente'},{id:'celular-cliente',name:'Celular del Cliente'},{id:'email-cliente',name:'Email del Cliente'},{id:'vehiculo-cotizado',name:'Vehículo a Cotizar'},{id:'valor-vehiculo',name:'Valor del Vehículo'}];for(const fieldInfo of requiredFields){const field=document.getElementById(fieldInfo.id);if(!field.value.trim()){alert(`El campo "${fieldInfo.name}" es obligatorio.`);field.focus();return false}}if(parseFloat(valorVehiculoInput.value)<=0){alert('Por favor, ingresa un valor de vehículo válido.');valorVehiculoInput.focus();return false}if(selectedPlan==='PROGRAMADO'&&parseFloat(valorEntradaInput.value)>=parseFloat(valorVehiculoInput.value)){alert('El valor de la entrada no puede ser igual o superior al valor del vehículo.');valorEntradaInput.focus();return false}return true
+                const requiredFields = [{ id: 'nombre-asesor', name: 'Nombre del Asesor' }, { id: 'celular-asesor', name: 'Celular del Asesor' }, { id: 'nombre-cliente', name: 'Nombre del Cliente' }, { id: 'cedula-cliente', name: 'Cédula del Cliente' }, { id: 'celular-cliente', name: 'Celular del Cliente' }, { id: 'email-cliente', name: 'Email del Cliente' }, { id: 'vehiculo-cotizado', name: 'Vehículo a Cotizar' }, { id: 'valor-vehiculo', name: 'Valor del Vehículo' }]; for (const fieldInfo of requiredFields) { const field = document.getElementById(fieldInfo.id); if (!field.value.trim()) { alert(`El campo "${fieldInfo.name}" es obligatorio.`); field.focus(); return false } } if (parseFloat(valorVehiculoInput.value) <= 0) { alert('Por favor, ingresa un valor de vehículo válido.'); valorVehiculoInput.focus(); return false } if (selectedPlan === 'PROGRAMADO' && parseFloat(valorEntradaInput.value) >= parseFloat(valorVehiculoInput.value)) { alert('El valor de la entrada no puede ser igual o superior al valor del vehículo.'); valorEntradaInput.focus(); return false } return true
             }
 
             // --- EVENT LISTENERS ---
@@ -371,14 +547,14 @@
                 const valorVehiculo = parseFloat(valorVehiculoInput.value);
                 let valorEntrada = parseFloat(valorEntradaInput.value) || 0;
                 if (selectedPlan === 'PERFECTO') valorEntrada = 0;
-                
+
                 // El cálculo real para las cuotas SÍ incluye el deducible
                 const tasaDeducible = config.deducible[selectedPlan];
                 const deducible = valorVehiculo * tasaDeducible;
                 const montoAFinanciarFinal = (selectedPlan === 'PERFECTO') ? valorVehiculo : (valorVehiculo - valorEntrada) + deducible;
 
                 const tasaInteres = config.tasaInteresAnual[selectedPlan];
-                resultsBody.innerHTML = ''; 
+                resultsBody.innerHTML = '';
 
                 config.plazos.forEach(plazo => {
                     const cuotaCapital = montoAFinanciarFinal / plazo;
@@ -399,7 +575,7 @@
                 initialMessage.classList.add('hidden');
                 resultsContainer.classList.remove('hidden');
             });
-            
+
             // --- PDF LOGIC ---
             pdfDownloadBtn.addEventListener('click', () => {
                 // PDF generation logic remains largely the same, but will use the simplified table from the HTML
@@ -412,21 +588,21 @@
                     try {
                         const doc = new jsPDF();
                         // Data capture is the same
-                        const nombreAsesor = document.getElementById('nombre-asesor').value||'N/A';const celularAsesor = document.getElementById('celular-asesor').value||'N/A';const nombreCliente = document.getElementById('nombre-cliente').value||'N/A';const cedulaCliente = document.getElementById('cedula-cliente').value||'N/A';const celularCliente = document.getElementById('celular-cliente').value||'N/A';const emailCliente = document.getElementById('email-cliente').value||'N/A';const vehiculoCotizado = document.getElementById('vehiculo-cotizado').value||'N/A';const valorVehiculo = parseFloat(valorVehiculoInput.value)||0;let valorEntrada = parseFloat(valorEntradaInput.value)||0;if (selectedPlan==='PERFECTO')valorEntrada=0;const tasaDeducible = config.deducible[selectedPlan];const deducible = valorVehiculo * tasaDeducible;const montoAFinanciarFinal = (selectedPlan==='PERFECTO')?valorVehiculo:(valorVehiculo-valorEntrada)+deducible;const tasaInscripcion = config.porcentajeInscripcion[selectedPlan];const inscripcionTotal = valorVehiculo * tasaInscripcion;const now = new Date();const fechaEmision = now.toLocaleDateString('es-EC');const horaEmision = now.toLocaleTimeString('es-EC',{hour:'2-digit',minute:'2-digit'});
+                        const nombreAsesor = document.getElementById('nombre-asesor').value || 'N/A'; const celularAsesor = document.getElementById('celular-asesor').value || 'N/A'; const nombreCliente = document.getElementById('nombre-cliente').value || 'N/A'; const cedulaCliente = document.getElementById('cedula-cliente').value || 'N/A'; const celularCliente = document.getElementById('celular-cliente').value || 'N/A'; const emailCliente = document.getElementById('email-cliente').value || 'N/A'; const vehiculoCotizado = document.getElementById('vehiculo-cotizado').value || 'N/A'; const valorVehiculo = parseFloat(valorVehiculoInput.value) || 0; let valorEntrada = parseFloat(valorEntradaInput.value) || 0; if (selectedPlan === 'PERFECTO') valorEntrada = 0; const tasaDeducible = config.deducible[selectedPlan]; const deducible = valorVehiculo * tasaDeducible; const montoAFinanciarFinal = (selectedPlan === 'PERFECTO') ? valorVehiculo : (valorVehiculo - valorEntrada) + deducible; const tasaInscripcion = config.porcentajeInscripcion[selectedPlan]; const inscripcionTotal = valorVehiculo * tasaInscripcion; const now = new Date(); const fechaEmision = now.toLocaleDateString('es-EC'); const horaEmision = now.toLocaleTimeString('es-EC', { hour: '2-digit', minute: '2-digit' });
 
                         // ===== INICIO DE LA CORRECCIÓN =====
-                        const headerHeight=35;
+                        const headerHeight = 35;
                         // doc.setFillColor(0,143,57); // LÍNEA ELIMINADA
                         // doc.rect(0,0,210,headerHeight,'F'); // LÍNEA ELIMINADA
-                        doc.setTextColor(0,143,57); // CAMBIO a color verde
+                        doc.setTextColor(0, 143, 57); // CAMBIO a color verde
                         doc.setFontSize(24);
-                        doc.setFont(undefined,'bold');
-                        doc.text("Credifinsa",14,23);
-                        let currentY=headerHeight+12;
-                        doc.setTextColor(30,30,30); // Se restaura el color de texto
+                        doc.setFont(undefined, 'bold');
+                        doc.text("Credifinsa", 14, 23);
+                        let currentY = headerHeight + 12;
+                        doc.setTextColor(30, 30, 30); // Se restaura el color de texto
                         // ===== FIN DE LA CORRECCIÓN =====
 
-                        doc.setFontSize(14);doc.setFont(undefined,'bold');doc.text("Cotización de Plan de Compra Programada",105,currentY,null,null,'center');currentY+=10;doc.setLineWidth(0.5);doc.setDrawColor(200,200,200);doc.line(14,currentY,196,currentY);currentY+=8;doc.setFontSize(10);doc.setFont(undefined,'normal');doc.text(`Fecha de Emisión: ${fechaEmision}`,14,currentY);doc.text(`Hora de Emisión: ${horaEmision}`,196,currentY,null,null,'right');currentY+=6;doc.text(`N° de Cotización: ${Date.now()}`,14,currentY);currentY+=10;doc.autoTable({body:[[{content:'Datos del Cliente',styles:{fontStyle:'bold',fillColor:'#f2f2f2'}}],[`Nombre: ${nombreCliente}`],[`Cédula: ${cedulaCliente}`],[`Celular: ${celularCliente}`],[`Email: ${emailCliente}`],[`Vehículo: ${vehiculoCotizado}`],],startY:currentY,theme:'grid',styles:{fontSize:9}});
+                        doc.setFontSize(14); doc.setFont(undefined, 'bold'); doc.text("Cotización de Plan de Compra Programada", 105, currentY, null, null, 'center'); currentY += 10; doc.setLineWidth(0.5); doc.setDrawColor(200, 200, 200); doc.line(14, currentY, 196, currentY); currentY += 8; doc.setFontSize(10); doc.setFont(undefined, 'normal'); doc.text(`Fecha de Emisión: ${fechaEmision}`, 14, currentY); doc.text(`Hora de Emisión: ${horaEmision}`, 196, currentY, null, null, 'right'); currentY += 6; doc.text(`N° de Cotización: ${Date.now()}`, 14, currentY); currentY += 10; doc.autoTable({ body: [[{ content: 'Datos del Cliente', styles: { fontStyle: 'bold', fillColor: '#f2f2f2' } }], [`Nombre: ${nombreCliente}`], [`Cédula: ${cedulaCliente}`], [`Celular: ${celularCliente}`], [`Email: ${emailCliente}`], [`Vehículo: ${vehiculoCotizado}`],], startY: currentY, theme: 'grid', styles: { fontSize: 9 } });
 
                         // Resumen Financiero: Mantenemos el monto real para transparencia interna
                         let tableY = doc.lastAutoTable.finalY + 8;
@@ -436,8 +612,8 @@
                                 ['Plan Seleccionado', selectedPlan],
                                 ['Valor del Vehículo', formatCurrency(valorVehiculo)],
                                 ['Valor de Entrada', formatCurrency(valorEntrada)],
-                                [{content: 'Monto a Financiar (para cálculo)', styles: {fontStyle: 'bold'}}, {content: formatCurrency(montoAFinanciarFinal), styles: {fontStyle: 'bold'}}],
-                                [{content: `Total Inscripción (${tasaInscripcion * 100}%)`, styles: {fontStyle: 'bold', fillColor: '#F0FFF4', textColor: [0,143,57]}}, {content: formatCurrency(inscripcionTotal), styles: {fontStyle: 'bold', fillColor: '#F0FFF4', textColor: [0,143,57]}}],
+                                [{ content: 'Monto a Financiar (para cálculo)', styles: { fontStyle: 'bold' } }, { content: formatCurrency(montoAFinanciarFinal), styles: { fontStyle: 'bold' } }],
+                                [{ content: `Total Inscripción (${tasaInscripcion * 100}%)`, styles: { fontStyle: 'bold', fillColor: '#F0FFF4', textColor: [0, 143, 57] } }, { content: formatCurrency(inscripcionTotal), styles: { fontStyle: 'bold', fillColor: '#F0FFF4', textColor: [0, 143, 57] } }],
                             ],
                             startY: tableY,
                             theme: 'grid',
@@ -453,16 +629,16 @@
                             headStyles: { fillColor: [0, 143, 57], textColor: [255, 255, 255], fontStyle: 'bold' },
                             didParseCell: (data) => {
                                 if (data.column.index === 1 && data.cell.section === 'body') {
-                                   data.cell.styles.fillColor = '#F0FFF4';
-                                   data.cell.styles.textColor = [0, 143, 57];
-                                   data.cell.styles.fontStyle = 'bold';
+                                    data.cell.styles.fillColor = '#F0FFF4';
+                                    data.cell.styles.textColor = [0, 143, 57];
+                                    data.cell.styles.fontStyle = 'bold';
                                 }
                             },
                             styles: { cellPadding: 2.5, fontSize: 10 },
                         });
 
                         // Footer is the same
-                        let finalY=doc.lastAutoTable.finalY;doc.setFontSize(9);doc.setFont(undefined,'bold');doc.setTextColor(30,30,30);doc.text(`Cotización preparada por: ${nombreAsesor}`,14,finalY+12);doc.text(`Contacto Asesor: ${celularAsesor}`,14,finalY+17);doc.setFontSize(8);doc.setTextColor(150,150,150);doc.text("Esta es una simulación de crédito. Los valores son aproximados y están sujetos a cambios.",105,finalY+22,null,null,"center");doc.text("Gracias por cotizar con Credifinsa | www.credifinsa.net",105,finalY+26,null,null,"center");
+                        let finalY = doc.lastAutoTable.finalY; doc.setFontSize(9); doc.setFont(undefined, 'bold'); doc.setTextColor(30, 30, 30); doc.text(`Cotización preparada por: ${nombreAsesor}`, 14, finalY + 12); doc.text(`Contacto Asesor: ${celularAsesor}`, 14, finalY + 17); doc.setFontSize(8); doc.setTextColor(150, 150, 150); doc.text("Esta es una simulación de crédito. Los valores son aproximados y están sujetos a cambios.", 105, finalY + 22, null, null, "center"); doc.text("Gracias por cotizar con Credifinsa | www.credifinsa.net", 105, finalY + 26, null, null, "center");
 
                         doc.save(`Cotizacion_Credifinsa_${nombreCliente.replace(/\s/g, '_')}.pdf`);
 
@@ -481,4 +657,5 @@
         });
     </script>
 </body>
+
 </html>
